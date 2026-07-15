@@ -1,3 +1,4 @@
+import { brandConfig } from "@/config/brand";
 import { cn } from "@/lib/utils";
 
 interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -5,9 +6,13 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
 }
 
-export function Heading({ as: Component = "h2", className, children, ...props }: HeadingProps) {
+export function Heading({ as: Component = "h2", className, children, style, ...props }: HeadingProps) {
   return (
-    <Component className={cn("font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl", className)} {...props}>
+    <Component
+      className={cn("font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl", className)}
+      style={{ fontFamily: brandConfig.typography.display, ...style }}
+      {...props}
+    >
       {children}
     </Component>
   );

@@ -1,0 +1,25 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" rx="48" fill="#F7EFE5"/>
+  <rect x="110" y="110" width="1380" height="980" rx="32" fill="#E7D3B4" fill-opacity="0.55"/>
+  <path d="M0 898C252 840 452 830 650 870C858 912 1106 1002 1600 936V1200H0V898Z" fill="#6A7A41"/>
+  <path d="M0 950C258 906 470 896 642 922C860 954 1110 1040 1600 972V1200H0V950Z" fill="#3D5525"/>
+  <circle cx="506" cy="442" r="184" fill="#C58F45" fill-opacity="0.36"/>
+  <rect x="338" y="544" width="314" height="274" rx="28" fill="#5A3A24" fill-opacity="0.9"/>
+  <path d="M420 642C460 580 512 548 564 548C612 548 644 584 650 646C654 690 640 744 594 770C552 792 488 786 440 760C398 738 380 692 420 642Z" fill="#A46E30" fill-opacity="0.88"/>
+  <path d="M334 560H646" stroke="#FFF0CF" stroke-width="12" stroke-linecap="round" stroke-opacity="0.7"/>
+  <path d="M340 818H640" stroke="#8F642F" stroke-width="10" stroke-linecap="round"/>
+  <path d="M710 380C780 320 884 292 982 314C1042 328 1102 360 1160 402" stroke="#7A5526" stroke-width="12" stroke-linecap="round"/>
+  <path d="M730 452C806 420 900 410 996 430C1048 440 1100 462 1150 498" stroke="#5E6E35" stroke-width="10" stroke-linecap="round"/>
+  <path d="M700 556H1218" stroke="#5E6E35" stroke-width="10" stroke-linecap="round"/>
+  <path d="M716 620H1198" stroke="#A46E30" stroke-width="8" stroke-linecap="round"/>
+  <path d="M730 684H1184" stroke="#5E6E35" stroke-width="8" stroke-linecap="round"/>
+  <path d="M824 322C860 280 918 252 984 250C1042 248 1106 264 1152 294" stroke="#F6E9C3" stroke-width="8" stroke-linecap="round" stroke-opacity="0.64"/>
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#pattern0)" fill-opacity="0.12"/>
+  <defs>
+    <pattern id="pattern0" patternUnits="userSpaceOnUse" width="120" height="120">
+      <path d="M0 60H120" stroke="#8C632D" stroke-width="1" stroke-opacity="0.45"/>
+      <path d="M60 0V120" stroke="#8C632D" stroke-width="1" stroke-opacity="0.45"/>
+      <path d="M0 0L120 120" stroke="#D6AE62" stroke-width="1" stroke-opacity="0.3"/>
+    </pattern>
+  </defs>
+</svg>

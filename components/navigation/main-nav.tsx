@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { brandConfig } from "@/config/brand";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -16,7 +17,7 @@ export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Primary" className="hidden items-center gap-6 text-sm text-foreground/70 md:flex">
+    <nav aria-label="Primary" className="hidden items-center gap-6 text-sm text-foreground/70 md:flex" style={{ fontFamily: brandConfig.typography.body }}>
       {links.map((link) => {
         const isActive = pathname === link.href;
 
@@ -28,6 +29,7 @@ export function MainNav() {
               "transition-colors hover:text-foreground",
               isActive && "text-foreground",
             )}
+            style={{ fontFamily: brandConfig.typography.body }}
           >
             {link.label}
           </Link>

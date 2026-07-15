@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6efe6;
+  --background: #f7efe6;
   --foreground: #14211c;
-  --muted: #efe2d0;
-  --accent: #9d6428;
-  --border: rgba(20, 33, 28, 0.12);
+  --muted: #efe2d2;
+  --accent: #b48a3c;
+  --border: rgba(20, 33, 28, 0.16);
   --destructive: #8a3c2d;
 }
 
@@ -28,6 +28,8 @@ body {
   background: linear-gradient(135deg, #f7efe6 0%, #efe2d2 100%);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
