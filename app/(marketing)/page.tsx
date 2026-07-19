@@ -9,6 +9,7 @@ import { ItineraryPreview } from "@/components/home/Itinerary";
 import { InvestmentPreview } from "@/components/home/Investment";
 import { FinalCTA } from "@/components/home/CTA";
 import { homepageSections } from "@/config/homepage";
+import { getContent } from "@/lib/sanity/fetch";
 import { heroContent } from "@/content/homepage/hero";
 import { whyContent } from "@/content/homepage/why";
 import { pillarsContent } from "@/content/homepage/pillars";
@@ -19,20 +20,45 @@ import { legacyInnovationContent } from "@/content/homepage/legacy-innovation";
 import { itineraryContent } from "@/content/homepage/itinerary";
 import { investmentContent } from "@/content/homepage/investment";
 import { ctaContent } from "@/content/homepage/cta";
+import type {
+  CtaContent,
+  ExperienceGalleryContent,
+  FounderStoryContent,
+  HeroChapterContent,
+  InvestmentContent,
+  ItineraryContent,
+  LegacyInnovationContent,
+  PillarsContent,
+  ReflectionContent,
+  WhyContent,
+} from "@/types/homepage";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [hero, why, pillars, founder, experience, reflection, legacyInnovation, itinerary, investment, cta] = await Promise.all([
+    getContent<HeroChapterContent>("homepageHero", heroContent),
+    getContent<WhyContent>("homepageWhy", whyContent),
+    getContent<PillarsContent>("homepagePillars", pillarsContent),
+    getContent<FounderStoryContent>("homepageFounder", founderContent),
+    getContent<ExperienceGalleryContent>("homepageExperience", experienceContent),
+    getContent<ReflectionContent>("homepageReflection", reflectionContent),
+    getContent<LegacyInnovationContent>("homepageLegacyInnovation", legacyInnovationContent),
+    getContent<ItineraryContent>("homepageItinerary", itineraryContent),
+    getContent<InvestmentContent>("homepageInvestment", investmentContent),
+    getContent<CtaContent>("homepageCta", ctaContent),
+  ]);
+
   return (
     <>
-      {homepageSections.includes("hero") ? <Hero content={heroContent} /> : null}
-      {homepageSections.includes("why") ? <Why content={whyContent} /> : null}
-      {homepageSections.includes("pillars") ? <Pillars content={pillarsContent} /> : null}
-      {homepageSections.includes("founder") ? <FounderStory content={founderContent} /> : null}
-      {homepageSections.includes("experience") ? <ExperienceGallery content={experienceContent} /> : null}
-      {homepageSections.includes("reflection") ? <Reflection content={reflectionContent} /> : null}
-      {homepageSections.includes("legacy-innovation") ? <LegacyInnovationPreview content={legacyInnovationContent} /> : null}
-      {homepageSections.includes("itinerary") ? <ItineraryPreview content={itineraryContent} /> : null}
-      {homepageSections.includes("investment") ? <InvestmentPreview content={investmentContent} /> : null}
-      {homepageSections.includes("cta") ? <FinalCTA content={ctaContent} /> : null}
+      {homepageSections.includes("hero") ? <Hero content={hero} /> : null}
+      {homepageSections.includes("why") ? <Why content={why} /> : null}
+      {homepageSections.includes("pillars") ? <Pillars content={pillars} /> : null}
+      {homepageSections.includes("founder") ? <FounderStory content={founder} /> : null}
+      {homepageSections.includes("experience") ? <ExperienceGallery content={experience} /> : null}
+      {homepageSections.includes("reflection") ? <Reflection content={reflection} /> : null}
+      {homepageSections.includes("legacy-innovation") ? <LegacyInnovationPreview content={legacyInnovation} /> : null}
+      {homepageSections.includes("itinerary") ? <ItineraryPreview content={itinerary} /> : null}
+      {homepageSections.includes("investment") ? <InvestmentPreview content={investment} /> : null}
+      {homepageSections.includes("cta") ? <FinalCTA content={cta} /> : null}
     </>
   );
 }

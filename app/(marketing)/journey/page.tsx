@@ -9,12 +9,14 @@ import { EditorialHeading } from "@/components/editorial/EditorialHeading";
 import { JourneyConnector } from "@/components/home/Journey/JourneyConnector";
 import { brandConfig } from "@/config/brand";
 import { buildMetadata } from "@/lib/seo";
+import { getContent } from "@/lib/sanity/fetch";
 import { journeyPageContent } from "@/content/journey";
+import type { JourneyPageContent } from "@/types/journey";
 
 export const metadata: Metadata = buildMetadata("Journey");
 
-export default function JourneyPage() {
-  const { hero, stages, closing } = journeyPageContent;
+export default async function JourneyPage() {
+  const { hero, stages, closing } = await getContent<JourneyPageContent>("journeyPage", journeyPageContent);
 
   return (
     <>

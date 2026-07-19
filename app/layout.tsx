@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 
-import { SiteShell } from "@/components/layout/site-shell";
+import { ConditionalSiteShell } from "@/components/layout/conditional-site-shell";
 import { buildMetadata } from "@/lib/seo";
 import { brandConfig } from "@/config/brand";
 import "./globals.css";
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-background text-foreground antialiased" style={{ fontFamily: brandConfig.typography.body }}>
-        <SiteShell>{children}</SiteShell>
+        <ConditionalSiteShell>{children}</ConditionalSiteShell>
       </body>
     </html>
   );

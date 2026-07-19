@@ -12,12 +12,14 @@ import { PullQuote } from "@/components/editorial/PullQuote";
 import { StatHighlight } from "@/components/editorial/StatHighlight";
 import { GoldRule } from "@/components/heritage/GoldRule";
 import { buildMetadata } from "@/lib/seo";
+import { getContent } from "@/lib/sanity/fetch";
 import { aboutContent } from "@/content/about";
+import type { AboutContent } from "@/types/about";
 
 export const metadata: Metadata = buildMetadata("About");
 
-export default function AboutPage() {
-  const { hero, mission, founderNote, values, milestones, quote, stats } = aboutContent;
+export default async function AboutPage() {
+  const { hero, mission, founderNote, values, milestones, quote, stats } = await getContent<AboutContent>("aboutPage", aboutContent);
 
   return (
     <>

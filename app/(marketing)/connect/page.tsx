@@ -7,12 +7,14 @@ import { EditorialHeading } from "@/components/editorial/EditorialHeading";
 import { GoldRule } from "@/components/heritage/GoldRule";
 import { ContactForm } from "@/components/connect/ContactForm";
 import { buildMetadata } from "@/lib/seo";
+import { getContent } from "@/lib/sanity/fetch";
 import { connectContent } from "@/content/connect";
+import type { ConnectContent } from "@/types/connect";
 
 export const metadata: Metadata = buildMetadata("Connect");
 
-export default function ConnectPage() {
-  const { hero, info, form } = connectContent;
+export default async function ConnectPage() {
+  const { hero, info, form } = await getContent<ConnectContent>("connectPage", connectContent);
 
   return (
     <>
