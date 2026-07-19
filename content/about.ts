@@ -12,8 +12,8 @@ export const aboutContent: AboutContent = {
     title: "Return is a practice, not a single trip.",
     body: "We started The Real Return™ because the story of the African Diaspora deserved a home that felt like an institution of memory rather than a tour operator. Every framework we build — from the Ghana Legacy Journey to No More Tears™ — is meant to hold weight for generations, not a single itinerary. We work closely with historians, educators, and community stewards in Ghana to make sure what we teach is accurate, dignified, and rooted in place.",
     image: {
-      src: "/images/placeholder/heritage.svg",
-      alt: "A documentary-style study of Ghanaian heritage, craft, and landscape",
+      src: "/images/stock/cape-coast-cannons.jpg",
+      alt: "Historical cannons overlooking the ocean at Cape Coast Castle, Ghana",
       caption: "Cape Coast Castle, the forest canopy of Kakum, and the weaving houses of Kumasi shape our curriculum.",
       meta: "Field notes • Ghanaian memory",
     },
