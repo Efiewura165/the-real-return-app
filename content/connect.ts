@@ -5,7 +5,7 @@ export const connectContent: ConnectContent = {
     eyebrow: "Connect",
     title: "Begin a conversation with a steward.",
     description:
-      "Whether you are starting with a course, planning a guided visit, or building a framework for your family, a steward will help you find the right next step.",
+      "Whether you're exploring the Legacy Journey, the Signature Return, or the Crown Legacy Experience, a steward will help you find the right next step into The Real Return™.",
   },
   info: [
     { label: "Email", value: "hello@therealreturn.com", href: "mailto:hello@therealreturn.com" },

@@ -1,30 +1,36 @@
-# The Real Return™ Design System
+# THE REAL RETURN™ Design System
+
+**Remember. Return. Rebuild.™**
 
 ## Brand philosophy
 
-The Real Return™ is not a travel brand and it should never feel like one. The visual language is built around memory, stewardship, and the calm confidence of cultural institutions. The design should feel like a place where heritage is studied, preserved, and passed forward rather than marketed for quick attention.
+The Real Return™ is a global legacy brand, not a travel company, and the site must never read like one. It should feel like entering a luxury cultural institution — the register of Aman or Salamander, not a booking engine. The journey through the page follows one arc: curiosity → wonder → connection → inspiration → legacy.
 
-The system favors restraint over spectacle. Every surface is meant to feel considered and durable, with details that suggest depth, lineage, and quiet authority.
+Master brand message:
+- **Remember** — honor the wisdom, stories, traditions, and achievements that shaped us.
+- **Return** — reconnect with places, people, resources, and experiences that inspire belonging.
+- **Rebuild** — create new opportunities, businesses, and communities for generations to come.
+
+Restraint is the whole strategy. Reference luxury hospitality sites carry their weight through generous negative space, quiet typography, and real photography — never through bold headlines, dense copy, or decorative noise. Avoid cartoon styles, traditional illustration, and generic travel imagery.
 
 ## Color language
 
-The palette is rooted in materials rather than trend: earth, aged paper, warm metal, and deep forest shadow. These tones create a sense of continuity with the African Diaspora story while keeping the interface grounded and premium.
+Primary triad: **Black** (strength, sophistication), **Gold** (legacy, excellence, used sparingly as signal not default), **Ivory** (wisdom, timelessness — the dominant page ground). **Emerald green** is secondary: growth, renewal, connection to the land.
 
-- Canvas: calm parchment warmth for background surfaces
-- Earth: the primary tone for meaningful emphasis and structure
-- Gold: used sparingly for signal points and editorial contrast
-- Clay: a secondary warmth for accents and transitions
-- Charcoal: the main text tone, chosen for clarity and dignity
-- Forest: used as a restrained accent for depth and belonging
+- `background` / `ivory` / `paper`: ivory tones carry the page — this is the dominant ground, not black
+- `primary` (black): reserved for high-contrast moments — header wordmark, footer, the Reflection section, typography — not a site-wide dark background
+- `gold` / `goldLuxury`: accent only — rules, eyebrows, hover states, the luxury-gold logo variant
+- `secondary` / `forest` (emerald): sparing secondary accent — land, growth, Legacy Innovation
+- `earth`: a deeper antique-bronze tone, used where a two-tone accent needs to sit *near* gold without competing with it (e.g. `AdinkraPattern`, `KenteDivider`)
 
 ## Typography
 
-The typography is intentionally editorial. Display type carries presence and gravity, while body type remains open and legible enough for extended reading. The system does not rely on novelty; it relies on authority.
+Display and editorial type is serif, set at **regular weight, sentence case** — never bold, never all-caps beyond small tracked eyebrow labels. Strength comes from scale and whitespace, not font-weight; both Aman and Salamander hold their headlines at 400-weight serif even at large sizes. Body type is a neutral sans-serif for extended reading.
 
-- Display: serif for chapter-like headings and major moments
-- Editorial: serif for narrative content with a magazine-like cadence
+- Display: serif for chapter-like headings and major moments — regular weight, sentence case
+- Editorial: serif for narrative content with a magazine-like cadence — regular weight
 - Body: neutral sans-serif for readability and balance
-- Caption: compact sans-serif for supporting information and metadata
+- Caption / eyebrow: compact sans-serif, uppercase, wide letter-spacing — this is the *only* place uppercase or heavier tracking belongs
 
 ## Core components
 

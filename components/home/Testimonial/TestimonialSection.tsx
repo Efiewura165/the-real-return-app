@@ -19,7 +19,7 @@ export function TestimonialSection({ eyebrow, title, description, testimonials }
       <Container className="py-16 sm:py-24">
         <Reveal>
           <div className="max-w-3xl space-y-4">
-            <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/60">{eyebrow}</p>
+            <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{eyebrow}</p>
             <Heading as="h2" className="text-3xl sm:text-4xl">
               {title}
             </Heading>

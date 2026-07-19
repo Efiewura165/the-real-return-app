@@ -10,10 +10,21 @@ interface HeroContentProps {
 export function HeroContent({ content }: HeroContentProps) {
   return (
     <div className="max-w-2xl space-y-6">
-      {content.location ? (
-        <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/50">{content.location}</p>
-      ) : null}
-      <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/60">{content.eyebrow}</p>
+      <div className="space-y-1.5">
+        {content.brandStack.map((line, index) => (
+          <p
+            key={line}
+            className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65"
+            style={index === 0 ? { color: "var(--accent)" } : undefined}
+          >
+            {line}
+          </p>
+        ))}
+        {content.location ? (
+          <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{content.location}</p>
+        ) : null}
+        <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{content.eyebrow}</p>
+      </div>
       <Heading as="h1" className="text-4xl sm:text-5xl lg:text-6xl">
         {content.title}
       </Heading>

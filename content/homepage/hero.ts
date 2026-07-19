@@ -1,13 +1,13 @@
 import type { HeroChapterContent } from "@/types/homepage";
 
 export const heroContent: HeroChapterContent = {
-  eyebrow: "The return begins before the journey",
-  title: "A journey home begins where the coast meets memory.",
+  brandStack: ["THE REAL RETURN™", "The Future Africa Experience™"],
+  location: "Ghana Legacy Journey",
+  eyebrow: "Remember. Return. Rebuild.™",
+  title: "What Are We Returning For?",
   subtitle:
-    "From Cape Coast to Kumasi, The Real Return guides families and cultural stewards into a deeper, more meaningful relationship with Ghana through learning, connection, and legacy-building.",
-  location: "Cape Coast • Kakum • Kumasi • Volta",
-  primaryCta: { label: "Begin learning", href: "#story" },
-  secondaryCta: { label: "Discover Ghana", href: "#ghana" },
+    "We are returning for wisdom carried through generations. A connection to culture expressed through movement, food, art, music, storytelling, and traditions that continue to thrive.",
+  primaryCta: { label: "Begin Your Journey", href: "#why" },
   image: {
     src: "/images/placeholder/hero-documentary.svg",
     alt: "A cinematic heritage scene shaped by Ghanaian memory, castle landscapes, and woven patterns",

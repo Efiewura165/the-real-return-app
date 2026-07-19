@@ -11,7 +11,7 @@ export function StoryQuote({ quote, attribution }: StoryQuoteProps) {
       <p className="font-serif text-xl leading-8 text-foreground sm:text-2xl" style={{ fontFamily: brandConfig.typography.editorial }}>
         “{quote}”
       </p>
-      <footer className="mt-4 text-sm uppercase tracking-[0.3em] text-foreground/60">{attribution}</footer>
+      <footer className="mt-4 text-sm uppercase tracking-[0.3em] text-foreground/65">{attribution}</footer>
     </blockquote>
   );
 }

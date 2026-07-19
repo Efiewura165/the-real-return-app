@@ -17,8 +17,8 @@ export function Story({ content }: StoryProps) {
       <Container className="grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
         <Reveal>
           <div className="space-y-6">
-            <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/60">{content.eyebrow}</p>
-            <p className="max-w-xl text-sm uppercase tracking-[0.32em] text-foreground/45">A cultural journal of place, memory, and return</p>
+            <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{content.eyebrow}</p>
+            <p className="max-w-xl text-sm uppercase tracking-[0.32em] text-foreground/65">A cultural journal of place, memory, and return</p>
             <Heading as="h2" className="text-3xl sm:text-4xl">
               {content.title}
             </Heading>

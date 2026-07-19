@@ -26,7 +26,7 @@ export function EditorialHeading({
           {eyebrow}
         </p>
       ) : null}
-      <Component className="font-serif text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
+      <Component className="font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">
         {title}
       </Component>
       {description ? <p className="max-w-2xl text-base leading-8 text-foreground/70">{description}</p> : null}

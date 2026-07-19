@@ -1,5 +1,6 @@
 export interface JourneyPageStage {
   label: string;
+  location: string;
   title: string;
   description: string;
   details: string[];

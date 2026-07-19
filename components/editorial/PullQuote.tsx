@@ -12,7 +12,7 @@ export function PullQuote({ quote, attribution, className, ...props }: PullQuote
       <blockquote className="font-serif text-xl leading-8 text-foreground sm:text-2xl">
         {quote}
       </blockquote>
-      {attribution ? <figcaption className="mt-4 text-sm uppercase tracking-[0.24em] text-foreground/60">{attribution}</figcaption> : null}
+      {attribution ? <figcaption className="mt-4 text-sm uppercase tracking-[0.24em] text-foreground/65">{attribution}</figcaption> : null}
     </figure>
   );
 }

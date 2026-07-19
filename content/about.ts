@@ -2,21 +2,26 @@ import type { AboutContent } from "@/types/about";
 
 export const aboutContent: AboutContent = {
   hero: {
-    eyebrow: "About the platform",
+    eyebrow: "About The Real Return™",
     title: "A place where heritage is studied, preserved, and passed forward.",
     description:
-      "The Real Return exists for families, educators, and cultural stewards who want their relationship with Ghana to be considered rather than rushed. We build the frameworks, journeys, and language for a return rooted in dignity.",
+      "The Real Return™ — The Future Africa Experience™ — exists for families, educators, and cultural stewards who want their relationship with Ghana to be considered rather than rushed. We build the frameworks, journeys, and language for a return rooted in dignity: Remember. Return. Rebuild.™",
   },
   mission: {
     eyebrow: "Why we began",
     title: "Return is a practice, not a single trip.",
-    body: "We started The Real Return because the story of the African Diaspora deserved a home that felt like an institution of memory rather than a tour operator. Every framework we build is meant to hold weight for generations, not a single itinerary. We work closely with historians, educators, and community stewards in Ghana to make sure what we teach is accurate, dignified, and rooted in place.",
+    body: "We started The Real Return™ because the story of the African Diaspora deserved a home that felt like an institution of memory rather than a tour operator. Every framework we build — from the Ghana Legacy Journey to No More Tears™ — is meant to hold weight for generations, not a single itinerary. We work closely with historians, educators, and community stewards in Ghana to make sure what we teach is accurate, dignified, and rooted in place.",
     image: {
       src: "/images/placeholder/heritage.svg",
       alt: "A documentary-style study of Ghanaian heritage, craft, and landscape",
       caption: "Cape Coast Castle, the forest canopy of Kakum, and the weaving houses of Kumasi shape our curriculum.",
       meta: "Field notes • Ghanaian memory",
     },
+  },
+  founderNote: {
+    eyebrow: "The person behind the platform",
+    body: "The Real Return™ began with one educator's own journey back to Ghana — a return that became the blueprint for everything built here since.",
+    cta: { label: "Read Tarsha's founder story", href: "/#founder" },
   },
   values: [
     {
@@ -35,23 +40,23 @@ export const aboutContent: AboutContent = {
   milestones: [
     {
       year: "Year one",
-      title: "Foundations of Heritage",
-      description: "The first course was written alongside historians in Cape Coast to ground the curriculum in place and record.",
+      title: "Foundations in Cape Coast",
+      description: "The first curriculum was written alongside historians in Cape Coast to ground the work in place and record.",
     },
     {
       year: "Year two",
-      title: "The Academy opens",
-      description: "Legacy Mapping and Meaningful Connection joined the curriculum, giving families a full path from study to practice.",
+      title: "The Ghana Legacy Journey launches",
+      description: "Guided visits to Cape Coast, Kakum, and Kumasi gave families a lived path from study to experience.",
     },
     {
       year: "Year three",
-      title: "The Journey framework",
-      description: "Learn, Connect, Experience, and Build became the throughline for every family and steward we work with.",
+      title: "Remember. Return. Rebuild.™",
+      description: "The master framework became the throughline for every family, steward, and venture we work with.",
     },
   ],
   quote: {
     quote: "To return is not only to revisit a place. It is to meet the past with dignity and continue the work of meaning.",
-    attribution: "The Real Return Studio",
+    attribution: "The Real Return™",
   },
   stats: [
     {
@@ -60,9 +65,9 @@ export const aboutContent: AboutContent = {
       description: "Cape Coast, Kakum, and Kumasi anchor the current curriculum, with Volta in active development.",
     },
     {
-      value: "4",
-      label: "Stages of return",
-      description: "Learn, connect, experience, and build form a coherent path rather than a single event.",
+      value: "3",
+      label: "Pillars of return",
+      description: "Remember, Return, and Rebuild form the master framework behind every journey we guide.",
     },
     {
       value: "1:1",

@@ -15,12 +15,13 @@ export interface ImageAsset {
 }
 
 export interface HeroChapterContent {
+  brandStack: string[];
+  location?: string;
   eyebrow: string;
   title: string;
   subtitle: string;
-  location?: string;
   primaryCta: HomepageLink;
-  secondaryCta: HomepageLink;
+  secondaryCta?: HomepageLink;
   image: ImageAsset;
 }
 
@@ -73,4 +74,91 @@ export interface CtaContent {
   title: string;
   description: string;
   buttons: HomepageButton[];
+}
+
+// — The Future Africa Experience™ homepage sections —
+
+export interface WhyContent {
+  eyebrow: string;
+  title: string;
+  body: string;
+  focusAreas: string[];
+  image: ImageAsset;
+}
+
+export interface Pillar {
+  key: "remember" | "return" | "rebuild";
+  title: string;
+  description: string;
+}
+
+export interface PillarsContent {
+  eyebrow: string;
+  title: string;
+  pillars: Pillar[];
+}
+
+export interface FounderStoryContent {
+  eyebrow: string;
+  title: string;
+  name: string;
+  role: string;
+  body: string[];
+  pullQuote: string;
+  image: ImageAsset;
+}
+
+export interface ExperienceGalleryContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  images: ImageAsset[];
+}
+
+export interface ReflectionContent {
+  eyebrow: string;
+  title: string;
+  body: string[];
+  closingLine: string;
+}
+
+export interface LegacyInnovationItem {
+  title: string;
+  description: string;
+}
+
+export interface LegacyInnovationContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: LegacyInnovationItem[];
+}
+
+export interface ItineraryHighlight {
+  day: string;
+  title: string;
+  location: string;
+  description: string;
+}
+
+export interface ItineraryContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  highlights: ItineraryHighlight[];
+  cta: HomepageLink;
+}
+
+export interface InvestmentTier {
+  name: string;
+  description: string;
+  inclusions: string[];
+  ctaLabel: string;
+}
+
+export interface InvestmentContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  tiers: InvestmentTier[];
 }

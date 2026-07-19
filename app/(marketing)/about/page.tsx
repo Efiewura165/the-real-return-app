@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -16,7 +17,7 @@ import { aboutContent } from "@/content/about";
 export const metadata: Metadata = buildMetadata("About");
 
 export default function AboutPage() {
-  const { hero, mission, values, milestones, quote, stats } = aboutContent;
+  const { hero, mission, founderNote, values, milestones, quote, stats } = aboutContent;
 
   return (
     <>
@@ -37,7 +38,17 @@ export default function AboutPage() {
               caption={mission.image.caption}
               title={mission.title}
               description={mission.body}
-            />
+            >
+              <div className="flex flex-wrap items-center gap-3 border-t border-black/10 pt-4">
+                <p className="text-sm leading-6 text-foreground/70">{founderNote.body}</p>
+                <Link
+                  href={founderNote.cta.href}
+                  className="whitespace-nowrap text-sm font-medium text-foreground underline decoration-black/20 underline-offset-4 transition-colors hover:text-foreground/70"
+                >
+                  {founderNote.cta.label}
+                </Link>
+              </div>
+            </ImageStory>
           </Reveal>
         </Container>
       </Section>
@@ -49,7 +60,7 @@ export default function AboutPage() {
               <div className="grid gap-6 sm:grid-cols-3">
                 {values.map((value) => (
                   <div key={value.title} className="rounded-[0.2rem] border border-black/10 bg-[#f8f2e8]/80 p-6">
-                    <h4 className="font-serif text-xl font-semibold text-foreground">{value.title}</h4>
+                    <h4 className="font-serif text-xl font-normal text-foreground">{value.title}</h4>
                     <p className="mt-2 text-sm leading-7 text-foreground/70">{value.description}</p>
                   </div>
                 ))}

@@ -26,7 +26,7 @@ export function StoryImage({ image }: StoryImageProps) {
       {image.caption ? (
         <div className="mt-4 border-t border-border/70 pt-4">
           <p className="text-sm leading-7 text-foreground/75">{image.caption}</p>
-          {image.meta ? <p className="mt-2 text-[0.7rem] uppercase tracking-[0.3em] text-foreground/55">{image.meta}</p> : null}
+          {image.meta ? <p className="mt-2 text-[0.7rem] uppercase tracking-[0.3em] text-foreground/65">{image.meta}</p> : null}
         </div>
       ) : null}
     </div>

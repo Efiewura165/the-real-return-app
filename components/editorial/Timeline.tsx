@@ -19,8 +19,8 @@ export function Timeline({ items, className, ...props }: TimelineProps) {
         <li key={`${item.year}-${item.title}`} className="relative border-l border-black/10 pl-6">
           <span className="absolute -left-[0.42rem] top-1 h-2.5 w-2.5 rounded-full" style={{ backgroundColor: brandConfig.colors.gold }} />
           <div className="space-y-1">
-            <p className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/55">{item.year}</p>
-            <h4 className="font-serif text-xl font-semibold text-foreground">{item.title}</h4>
+            <p className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/65">{item.year}</p>
+            <h4 className="font-serif text-xl font-medium text-foreground">{item.title}</h4>
             <p className="text-base leading-7 text-foreground/70">{item.description}</p>
           </div>
         </li>

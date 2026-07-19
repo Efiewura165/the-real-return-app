@@ -23,6 +23,11 @@ export interface AboutContent {
     body: string;
     image: ImageAsset;
   };
+  founderNote: {
+    eyebrow: string;
+    body: string;
+    cta: { label: string; href: string };
+  };
   values: AboutValue[];
   milestones: AboutMilestone[];
   quote: {

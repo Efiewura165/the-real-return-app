@@ -3,22 +3,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
-const contactSchema = z.object({
-  name: z.string().min(2, "Please share your name."),
-  email: z.string().email("Enter a valid email address."),
-  message: z.string().min(10, "Tell us a little more so a steward can help."),
-});
-
-type ContactFormValues = z.infer<typeof contactSchema>;
+import { contactSchema, type ContactFormValues } from "@/lib/contact-schema";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitted">("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -29,10 +22,26 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: ContactFormValues) {
-    await new Promise((resolve) => setTimeout(resolve, 400));
-    console.info("Contact request", values);
-    setStatus("submitted");
-    reset();
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        setSubmitError(data?.error ?? "We couldn't send your message. Please try again or email us directly.");
+        return;
+      }
+
+      setStatus("submitted");
+      reset();
+    } catch {
+      setSubmitError("We couldn't reach the server. Please check your connection and try again.");
+    }
   }
 
   if (status === "submitted") {
@@ -49,7 +58,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       <div className="space-y-1.5">
-        <label htmlFor="name" className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/60">
+        <label htmlFor="name" className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/65">
           Name
         </label>
         <Input id="name" placeholder="Your full name" {...register("name")} />
@@ -57,7 +66,7 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-1.5">
-        <label htmlFor="email" className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/60">
+        <label htmlFor="email" className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/65">
           Email
         </label>
         <Input id="email" type="email" placeholder="you@example.com" {...register("email")} />
@@ -65,12 +74,14 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-1.5">
-        <label htmlFor="message" className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/60">
+        <label htmlFor="message" className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/65">
           Message
         </label>
         <Textarea id="message" placeholder="Share where you are in the journey and how a steward can help." {...register("message")} />
         {errors.message ? <p className="text-sm text-red-700/80">{errors.message.message}</p> : null}
       </div>
+
+      {submitError ? <p className="text-sm text-red-700/80">{submitError}</p> : null}
 
       <Button type="submit" size="lg" disabled={isSubmitting}>
         {isSubmitting ? "Sending…" : "Send message"}

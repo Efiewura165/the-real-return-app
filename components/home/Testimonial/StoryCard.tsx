@@ -12,7 +12,7 @@ export function StoryCard({ testimonial }: StoryCardProps) {
       <p className="font-serif text-xl leading-8 text-foreground">“{testimonial.quote}”</p>
       <div className="mt-6">
         <p className="text-base font-medium text-foreground">{testimonial.name}</p>
-        <p className="text-sm uppercase tracking-[0.3em] text-foreground/55">{testimonial.role}</p>
+        <p className="text-sm uppercase tracking-[0.3em] text-foreground/65">{testimonial.role}</p>
       </div>
     </article>
   );

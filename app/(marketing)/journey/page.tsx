@@ -28,13 +28,15 @@ export default function JourneyPage() {
 
       <Section className="border-b border-border/70">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {stages.map((stage, index) => (
               <Reveal key={stage.title} delay={index * 0.06}>
                 <div className="relative h-full">
                   <div className="flex h-full flex-col rounded-[1.5rem] border border-border/70 bg-background/70 p-6 shadow-[0_12px_32px_rgba(8,15,12,0.06)]">
-                    <p className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/55">{stage.label}</p>
-                    <h3 className="mt-4 font-serif text-2xl font-semibold text-foreground" style={{ fontFamily: brandConfig.typography.editorial }}>
+                    <p className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/65">
+                      {stage.label} — {stage.location}
+                    </p>
+                    <h3 className="mt-4 font-serif text-2xl font-normal text-foreground" style={{ fontFamily: brandConfig.typography.editorial }}>
                       {stage.title}
                     </h3>
                     <p className="mt-3 text-base leading-7 text-foreground/70">{stage.description}</p>
@@ -57,8 +59,8 @@ export default function JourneyPage() {
       <Section>
         <Container className="max-w-3xl text-center">
           <Reveal>
-            <p className="text-[0.7rem] uppercase tracking-[0.35em] text-foreground/60">{closing.eyebrow}</p>
-            <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight text-foreground sm:text-4xl">{closing.title}</h2>
+            <p className="text-[0.7rem] uppercase tracking-[0.35em] text-foreground/65">{closing.eyebrow}</p>
+            <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">{closing.title}</h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-foreground/70">{closing.description}</p>
             <Button asChild size="lg" className="mt-8">
               <Link href={closing.cta.href}>{closing.cta.label}</Link>

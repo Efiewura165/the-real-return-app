@@ -9,7 +9,7 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
 export function Heading({ as: Component = "h2", className, children, style, ...props }: HeadingProps) {
   return (
     <Component
-      className={cn("font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl", className)}
+      className={cn("font-serif text-3xl font-normal text-foreground sm:text-4xl", className)}
       style={{ fontFamily: brandConfig.typography.display, ...style }}
       {...props}
     >

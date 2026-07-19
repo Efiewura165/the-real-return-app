@@ -30,15 +30,15 @@ export default function ConnectPage() {
             <Reveal>
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/60">{form.eyebrow}</p>
-                  <h2 className="font-serif text-2xl font-semibold leading-tight text-foreground sm:text-3xl">{form.title}</h2>
+                  <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{form.eyebrow}</p>
+                  <h2 className="font-serif text-2xl font-normal leading-tight text-foreground sm:text-3xl">{form.title}</h2>
                   <p className="max-w-md text-base leading-8 text-foreground/70">{form.description}</p>
                 </div>
                 <GoldRule />
                 <dl className="space-y-5">
                   {info.map((item) => (
                     <div key={item.label}>
-                      <dt className="text-[0.68rem] uppercase tracking-[0.3em] text-foreground/55">{item.label}</dt>
+                      <dt className="text-[0.68rem] uppercase tracking-[0.3em] text-foreground/65">{item.label}</dt>
                       <dd className="mt-1 text-base text-foreground">
                         {item.href ? (
                           <a href={item.href} className="underline decoration-black/20 underline-offset-4 transition-colors hover:text-foreground/70">
