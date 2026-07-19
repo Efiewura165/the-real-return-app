@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { MainNav } from "@/components/navigation/main-nav";
+import { DesktopNav } from "@/components/navigation/desktop-nav";
 import { Footer } from "@/components/layout/footer";
 import { Container } from "@/components/ui/container";
 import { PageTransition } from "@/components/ui/page-transition";
@@ -18,11 +19,14 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           <Link href="/" aria-label={brandConfig.logo.alt}>
             <FullLockup variant="default" size={28} />
           </Link>
-          <div className="flex items-center gap-2 sm:gap-4">
-            <Button asChild size="sm" className="hidden sm:inline-flex">
-              <Link href="/connect">Reserve Your Journey</Link>
-            </Button>
-            <MainNav />
+          <div className="flex items-center gap-6 sm:gap-8">
+            <DesktopNav />
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Button asChild size="sm" className="hidden sm:inline-flex">
+                <Link href="/connect">Reserve Your Journey</Link>
+              </Button>
+              <MainNav />
+            </div>
           </div>
         </Container>
       </header>

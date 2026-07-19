@@ -1,9 +1,9 @@
+import Image from "next/image";
+
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { Section } from "@/components/ui/section";
 import type { HeroChapterContent } from "@/types/homepage";
 import { HeroContent } from "./HeroContent";
-import { HeroMedia } from "./HeroMedia";
 
 interface HeroProps {
   content: HeroChapterContent;
@@ -11,15 +11,15 @@ interface HeroProps {
 
 export function Hero({ content }: HeroProps) {
   return (
-    <Section id="hero" className="border-b border-border/70">
-      <Container className="grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+    <section id="hero" className="relative flex min-h-[88vh] items-end overflow-hidden border-b border-border/70">
+      <Image src={content.image.src} alt={content.image.alt} fill priority sizes="100vw" className="object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/10 to-transparent" />
+      <Container className="relative z-10 w-full py-16 sm:py-20">
         <Reveal>
           <HeroContent content={content} />
         </Reveal>
-        <Reveal delay={0.08}>
-          <HeroMedia image={content.image} />
-        </Reveal>
       </Container>
-    </Section>
+    </section>
   );
 }
