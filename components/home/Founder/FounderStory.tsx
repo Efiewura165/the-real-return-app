@@ -29,10 +29,10 @@ export function FounderStory({ content }: FounderStoryProps) {
             ))}
             <PullQuote quote={content.pullQuote} attribution={`${content.name}, ${content.role}`} />
             <Link
-              href="/about"
+              href="/founder"
               className="inline-block text-sm font-medium text-foreground underline decoration-black/20 underline-offset-4 transition-colors hover:text-foreground/70"
             >
-              More about The Real Return™
+              Meet Tarsha, our founder →
             </Link>
           </StoryLayout>
         </Reveal>

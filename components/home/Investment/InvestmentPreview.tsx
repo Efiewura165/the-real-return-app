@@ -19,7 +19,7 @@ export function InvestmentPreview({ content }: InvestmentPreviewProps) {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {content.tiers.map((tier, index) => (
             <Reveal key={tier.name} delay={index * 0.06}>
-              <PricingCard tier={tier} featured={index === 1} />
+              <PricingCard tier={tier} index={index} featured={index === 1} />
             </Reveal>
           ))}
         </div>

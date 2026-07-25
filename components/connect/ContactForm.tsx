@@ -6,8 +6,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { contactSchema, type ContactFormValues } from "@/lib/contact-schema";
+import { investmentContent } from "@/content/shared/investment";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitted">("idle");
@@ -71,6 +73,20 @@ export function ContactForm() {
         </label>
         <Input id="email" type="email" placeholder="you@example.com" {...register("email")} />
         {errors.email ? <p className="text-sm text-red-700/80">{errors.email.message}</p> : null}
+      </div>
+
+      <div className="space-y-1.5">
+        <label htmlFor="journeyInterest" className="text-[0.7rem] uppercase tracking-[0.3em] text-foreground/65">
+          Journey of interest (optional)
+        </label>
+        <Select id="journeyInterest" defaultValue="" {...register("journeyInterest")}>
+          <option value="">Not sure yet</option>
+          {investmentContent.tiers.map((tier) => (
+            <option key={tier.name} value={tier.name}>
+              {tier.name}
+            </option>
+          ))}
+        </Select>
       </div>
 
       <div className="space-y-1.5">

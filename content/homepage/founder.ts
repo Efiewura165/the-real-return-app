@@ -1,18 +1,17 @@
 import type { FounderStoryContent } from "@/types/homepage";
 
 export const founderContent: FounderStoryContent = {
-  eyebrow: "Why I created The Real Return™",
-  title: "A journey that began with one educator's return.",
-  name: "Tarsha",
+  eyebrow: "The Founder's Story",
+  title: "The Heart Behind The Real Return™",
+  name: "Tarsha Lewis",
   role: "Founder, The Real Return™",
   body: [
-    "Placeholder — Tarsha's founder story pending final copy. As an educator, her own journey back to Ghana reframed what a meaningful return could look like: not a vacation, but a deliberate act of remembering, reconnecting, and rebuilding.",
-    "Placeholder — this section should carry the personal, trust-building narrative the brief calls for. Replace with Tarsha's own words before launch.",
+    "I did not begin The Real Return™ simply as a travel idea. It began as a personal question: What happens when we truly reconnect with where we come from?",
   ],
-  pullQuote: "Placeholder — a short line in Tarsha's own voice belongs here.",
+  pullQuote: "Legacy is not only what we leave behind. Legacy is what we build for those who come after us.",
   image: {
-    src: "/images/placeholder/legacy.svg",
-    alt: "Portrait placeholder for the founder story",
-    caption: "Tarsha, Founder of The Real Return™",
+    src: "/images/founder/tarsha-portrait.jpg",
+    alt: "Portrait of Tarsha Lewis, Founder of The Real Return™",
+    caption: "Tarsha Lewis, Founder of The Real Return™",
   },
 };

@@ -10,15 +10,16 @@ export async function POST(request: Request) {
     return Response.json({ error: "That submission didn't look right — please check the form and try again." }, { status: 400 });
   }
 
-  const { name, email, message } = parsed.data;
+  const { name, email, journeyInterest, message } = parsed.data;
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.CONTACT_TO_EMAIL || "hello@therealreturn.com";
+  const interestLine = journeyInterest ? `Journey of interest: ${journeyInterest}\n\n` : "";
 
   if (!apiKey) {
     console.warn(
       `[contact] RESEND_API_KEY is not set — this message was NOT delivered.\n` +
         `Set RESEND_API_KEY (and optionally CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL) to enable delivery.\n` +
-        `Message from ${name} <${email}>:\n${message}`,
+        `Message from ${name} <${email}>:\n${interestLine}${message}`,
     );
     return Response.json({ ok: true, delivered: false });
   }
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
       to: toEmail,
       replyTo: email,
       subject: `New journey inquiry from ${name}`,
-      text: `From: ${name} <${email}>\n\n${message}`,
+      text: `From: ${name} <${email}>\n\n${interestLine}${message}`,
     });
 
     if (error) {

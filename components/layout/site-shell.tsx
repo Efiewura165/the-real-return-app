@@ -8,11 +8,13 @@ import { PageTransition } from "@/components/ui/page-transition";
 import { Button } from "@/components/ui/button";
 import { FullLockup } from "@/components/brand/Logo";
 import { HashScroll } from "@/components/shared/hash-scroll";
+import { AdinkraBackdrop } from "@/components/heritage/AdinkraBackdrop";
 import { brandConfig } from "@/config/brand";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
+      <AdinkraBackdrop tone="ink" opacity={0.09} position="fixed" className="-z-10" />
       <HashScroll />
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/75 backdrop-blur">
         <Container className="flex h-16 items-center justify-between">
@@ -23,7 +25,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <DesktopNav />
             <div className="flex items-center gap-2 sm:gap-4">
               <Button asChild size="sm" className="hidden sm:inline-flex">
-                <Link href="/connect">Reserve Your Journey</Link>
+                <Link href="/reserve">Reserve Your Journey</Link>
               </Button>
               <MainNav />
             </div>

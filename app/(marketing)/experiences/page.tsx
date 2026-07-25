@@ -5,26 +5,43 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 import { Button } from "@/components/ui/button";
-import { EditorialHeading } from "@/components/editorial/EditorialHeading";
+import { PageHero } from "@/components/ui/page-hero";
 import { JourneyConnector } from "@/components/home/Journey/JourneyConnector";
+import { JourneyCarousel } from "@/components/journey";
+import { PricingCard } from "@/components/ui/pricing-card";
+import { EditorialHeading } from "@/components/editorial/EditorialHeading";
 import { brandConfig } from "@/config/brand";
 import { buildMetadata } from "@/lib/seo";
 import { getContent } from "@/lib/sanity/fetch";
 import { journeyPageContent } from "@/content/journey";
+import { investmentContent } from "@/content/shared/investment";
 import type { JourneyPageContent } from "@/types/journey";
 
-export const metadata: Metadata = buildMetadata("Journey");
+export const metadata: Metadata = buildMetadata("Experiences");
 
-export default async function JourneyPage() {
-  const { hero, stages, closing } = await getContent<JourneyPageContent>("journeyPage", journeyPageContent);
+export default async function ExperiencesPage() {
+  const { hero, carousel, stages, futureJourneys, closing } = await getContent<JourneyPageContent>("experiencesPage", journeyPageContent);
 
   return (
     <>
+      <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} image={hero.image} />
+
       <Section className="border-b border-border/70">
         <Container>
           <Reveal>
-            <EditorialHeading as="h1" align="center" eyebrow={hero.eyebrow} title={hero.title} description={hero.description} className="mx-auto" />
+            <div className="mx-auto max-w-2xl space-y-3 text-center">
+              <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{carousel.eyebrow}</p>
+              <h2 className="font-serif text-2xl font-normal leading-tight text-foreground sm:text-3xl" style={{ fontFamily: brandConfig.typography.display }}>
+                {carousel.title}
+              </h2>
+              <p className="text-base leading-7 text-foreground/70">{carousel.description}</p>
+            </div>
           </Reveal>
+          <div className="mx-auto mt-8 max-w-4xl">
+            <Reveal delay={0.06}>
+              <JourneyCarousel slides={carousel.slides} />
+            </Reveal>
+          </div>
         </Container>
       </Section>
 
@@ -58,10 +75,40 @@ export default async function JourneyPage() {
         </Container>
       </Section>
 
+      <Section className="border-b border-border/70">
+        <Container>
+          <Reveal>
+            <EditorialHeading
+              align="center"
+              eyebrow="Private/group journeys"
+              title="Every tier travels the same itinerary, at the depth that fits your family."
+              className="mx-auto"
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {investmentContent.tiers.map((tier, index) => (
+              <Reveal key={tier.name} delay={index * 0.06}>
+                <PricingCard tier={tier} index={index} featured={index === 1} />
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="border-b border-border/70">
+        <Container className="max-w-2xl text-center">
+          <Reveal>
+            <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{futureJourneys.eyebrow}</p>
+            <h2 className="mt-4 font-serif text-2xl font-normal leading-tight text-foreground sm:text-3xl">{futureJourneys.title}</h2>
+            <p className="mx-auto mt-4 text-base leading-8 text-foreground/70">{futureJourneys.description}</p>
+          </Reveal>
+        </Container>
+      </Section>
+
       <Section>
         <Container className="max-w-3xl text-center">
           <Reveal>
-            <p className="text-[0.7rem] uppercase tracking-[0.35em] text-foreground/65">{closing.eyebrow}</p>
+            <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{closing.eyebrow}</p>
             <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">{closing.title}</h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-foreground/70">{closing.description}</p>
             <Button asChild size="lg" className="mt-8">

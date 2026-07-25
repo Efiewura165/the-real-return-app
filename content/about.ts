@@ -6,6 +6,10 @@ export const aboutContent: AboutContent = {
     title: "A place where heritage is studied, preserved, and passed forward.",
     description:
       "The Real Return™ — The Future Africa Experience™ — exists for families, educators, and cultural stewards who want their relationship with Ghana to be considered rather than rushed. We build the frameworks, journeys, and language for a return rooted in dignity: Remember. Return. Rebuild.™",
+    image: {
+      src: "/images/stock/elmina-castle-archway.jpg",
+      alt: "View through the archway of the historic Elmina Castle overlooking the sea in Ghana",
+    },
   },
   mission: {
     eyebrow: "Why we began",
@@ -18,42 +22,16 @@ export const aboutContent: AboutContent = {
       meta: "Field notes • Ghanaian memory",
     },
   },
-  founderNote: {
-    eyebrow: "The person behind the platform",
-    body: "The Real Return™ began with one educator's own journey back to Ghana — a return that became the blueprint for everything built here since.",
-    cta: { label: "Read Tarsha's founder story", href: "/#founder" },
+  vision: {
+    eyebrow: "Our vision",
+    title: "What we're building toward.",
+    body: "I believe Africa and the global African diaspora deserve the same intentional investment in connection, education, and legacy-building. The Real Return™ was created from that belief. My vision is to create experiences that educate, inspire, and encourage people to reconnect with Africa, support its growth, and participate in building a legacy that extends beyond one lifetime.",
   },
-  values: [
-    {
-      title: "Dignity over spectacle",
-      description: "We treat memory as something to be studied and honored, never marketed for quick attention.",
-    },
-    {
-      title: "Rooted in place",
-      description: "Every story, ritual, and framework is developed alongside Ghanaian historians and cultural stewards.",
-    },
-    {
-      title: "Built for generations",
-      description: "Our work is measured in the frameworks families carry forward, not a single visit or transaction.",
-    },
-  ],
-  milestones: [
-    {
-      year: "Year one",
-      title: "Foundations in Cape Coast",
-      description: "The first curriculum was written alongside historians in Cape Coast to ground the work in place and record.",
-    },
-    {
-      year: "Year two",
-      title: "The Ghana Legacy Journey launches",
-      description: "Guided visits to Cape Coast, Kakum, and Kumasi gave families a lived path from study to experience.",
-    },
-    {
-      year: "Year three",
-      title: "Remember. Return. Rebuild.™",
-      description: "The master framework became the throughline for every family, steward, and venture we work with.",
-    },
-  ],
+  philosophy: {
+    eyebrow: "Our philosophy",
+    title: "Remember. Return. Rebuild.™",
+    description: "It is a mission to help people experience Africa beyond a single story — to see the history, the innovation, the creativity, the culture, and the possibilities of the future.",
+  },
   quote: {
     quote: "To return is not only to revisit a place. It is to meet the past with dignity and continue the work of meaning.",
     attribution: "The Real Return™",

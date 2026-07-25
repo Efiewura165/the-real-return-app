@@ -8,7 +8,7 @@
  * SANITY_API_WRITE_TOKEN (a token with Editor/Administrator rights,
  * created at https://www.sanity.io/manage under your project's API tab)
  * in .env.local. Safe to re-run — every document is createOrReplace'd by
- * a fixed id, so re-running just overwrites the same 13 documents.
+ * a fixed id, so re-running just overwrites the same 18 documents.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -30,11 +30,16 @@ import { founderContent } from "../content/homepage/founder";
 import { experienceContent } from "../content/homepage/experience";
 import { reflectionContent } from "../content/homepage/reflection";
 import { legacyInnovationContent } from "../content/homepage/legacy-innovation";
+import { academyPreview } from "../content/homepage/academy";
 import { itineraryContent } from "../content/homepage/itinerary";
-import { investmentContent } from "../content/homepage/investment";
+import { investmentContent } from "../content/shared/investment";
 import { ctaContent } from "../content/homepage/cta";
 import { aboutContent } from "../content/about";
+import { founderPageContent } from "../content/founder";
+import { approachPageContent } from "../content/approach";
+import { academyPageContent } from "../content/academy";
 import { journeyPageContent } from "../content/journey";
+import { communityPageContent } from "../content/community";
 import { connectContent } from "../content/connect";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -108,7 +113,7 @@ async function seed() {
     subtitle: heroContent.subtitle,
     primaryCta: heroContent.primaryCta,
     secondaryCta: heroContent.secondaryCta,
-    image: await imageWithMeta(heroContent.image),
+    images: withKeys((await Promise.all(heroContent.images.map((image) => imageWithMeta(image)))).filter((image) => image !== undefined)),
   });
 
   await set("homepageWhy", "homepageWhy", {
@@ -159,6 +164,16 @@ async function seed() {
     items: withKeys(legacyInnovationContent.items),
   });
 
+  await set("homepageAcademy", "homepageAcademy", {
+    eyebrow: academyPreview.eyebrow,
+    title: academyPreview.title,
+    description: academyPreview.description,
+    facilitator: academyPreview.facilitator,
+    image: await imageWithMeta(academyPreview.image),
+    courses: withKeys(academyPreview.courses),
+    cta: academyPreview.cta,
+  });
+
   await set("homepageItinerary", "homepageItinerary", {
     eyebrow: itineraryContent.eyebrow,
     title: itineraryContent.title,
@@ -182,28 +197,83 @@ async function seed() {
   });
 
   await set("aboutPage", "aboutPage", {
-    hero: aboutContent.hero,
+    hero: { ...aboutContent.hero, image: await imageWithMeta(aboutContent.hero.image) },
     mission: { ...aboutContent.mission, image: await imageWithMeta(aboutContent.mission.image) },
-    founderNote: aboutContent.founderNote,
-    values: withKeys(aboutContent.values),
-    milestones: withKeys(aboutContent.milestones),
+    vision: aboutContent.vision,
+    philosophy: aboutContent.philosophy,
     quote: aboutContent.quote,
     stats: withKeys(aboutContent.stats),
   });
 
-  await set("journeyPage", "journeyPage", {
-    hero: journeyPageContent.hero,
+  await set("founderPage", "founderPage", {
+    hero: { ...founderPageContent.hero, image: await imageWithMeta(founderPageContent.hero.image) },
+    name: founderPageContent.name,
+    role: founderPageContent.role,
+    body: founderPageContent.body,
+    pullQuote: founderPageContent.pullQuote,
+    cta: founderPageContent.cta,
+  });
+
+  await set("approachPage", "approachPage", {
+    hero: { ...approachPageContent.hero, image: await imageWithMeta(approachPageContent.hero.image) },
+    intro: approachPageContent.intro,
+    pillars: withKeys(approachPageContent.pillars),
+    values: withKeys(approachPageContent.values),
+    milestones: withKeys(approachPageContent.milestones),
+  });
+
+  await set("journeyAcademyPage", "journeyAcademyPage", {
+    hero: { ...academyPageContent.hero, image: await imageWithMeta(academyPageContent.hero.image) },
+    intro: academyPageContent.intro,
+    programs: withKeys(academyPageContent.programs),
+    phases: withKeys(
+      academyPageContent.phases.map((phase) => ({
+        ...phase,
+        modules: withKeys(phase.modules.map((module) => ({ ...module, topics: withKeys(module.topics) }))),
+      })),
+    ),
+    resources: withKeys(academyPageContent.resources),
+    closing: academyPageContent.closing,
+  });
+
+  const experienceCarouselSlides = await Promise.all(journeyPageContent.carousel.slides.map((slide) => imageWithMeta(slide)));
+  await set("experiencesPage", "experiencesPage", {
+    hero: { ...journeyPageContent.hero, image: await imageWithMeta(journeyPageContent.hero.image) },
+    carousel: {
+      eyebrow: journeyPageContent.carousel.eyebrow,
+      title: journeyPageContent.carousel.title,
+      description: journeyPageContent.carousel.description,
+      slides: experienceCarouselSlides
+        .filter((slide): slide is NonNullable<typeof slide> => Boolean(slide))
+        .map((slide) => ({ ...slide, _key: randomUUID() })),
+    },
     stages: withKeys(journeyPageContent.stages),
+    futureJourneys: journeyPageContent.futureJourneys,
     closing: journeyPageContent.closing,
   });
 
-  await set("connectPage", "connectPage", {
-    hero: connectContent.hero,
+  await set("communityPage", "communityPage", {
+    hero: { ...communityPageContent.hero, image: await imageWithMeta(communityPageContent.hero.image) },
+    stories: {
+      eyebrow: communityPageContent.stories.eyebrow,
+      title: communityPageContent.stories.title,
+      description: communityPageContent.stories.description,
+      testimonials: withKeys(communityPageContent.stories.testimonials),
+    },
+    newsletter: communityPageContent.newsletter,
+    events: communityPageContent.events,
+    connections: communityPageContent.connections,
+  });
+
+  await set("reservePage", "reservePage", {
+    hero: { ...connectContent.hero, image: await imageWithMeta(connectContent.hero.image) },
+    journeyOptions: connectContent.journeyOptions,
+    process: { ...connectContent.process, steps: withKeys(connectContent.process.steps) },
     info: withKeys(connectContent.info),
     form: connectContent.form,
   });
 
-  console.log("\nDone — the Studio at /studio should now show all 13 documents populated.");
+  console.log("\nDone — the Studio at /studio should now show all 18 documents populated.");
 }
 
 seed().catch((error) => {

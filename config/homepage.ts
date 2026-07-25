@@ -6,6 +6,7 @@ export const homepageSections = [
   "experience",
   "reflection",
   "legacy-innovation",
+  "academy",
   "itinerary",
   "investment",
   "cta",

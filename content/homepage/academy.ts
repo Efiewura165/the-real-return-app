@@ -2,28 +2,30 @@ import type { CoursePreview } from "@/types/homepage";
 
 export const academyPreview: CoursePreview = {
   eyebrow: "The Academy",
-  title: "Learn the language of heritage with structure, dignity, and direction.",
+  title: "Arrive prepared. Learn before you land.",
   description:
-    "A thoughtful learning experience designed for individuals and families who want depth, reflection, and next-step guidance on their return journey.",
+    "Membership begins with Foundation & Orientation — grounded, practical modules that prepare you before you ever set foot in Ghana. From there, deeper phases unlock: Cultural Deep-Dive, Identity & Belonging, Practical Relocation, Economic Opportunity, and 1:1 Concierge guidance for those ready to go further.",
+  facilitator: "Taught by Tarsha Lewis, Founder of The Real Return™",
   image: {
-    src: "/images/placeholder/academy.svg",
-    alt: "Illustration of a learning experience rooted in heritage",
+    src: "/images/stock/academy-heritage-lesson.jpg",
+    alt: "An educator writing on a whiteboard during a heritage studies lesson",
   },
   courses: [
     {
-      title: "Foundations of Heritage",
-      description: "An introductory course on lineage, memory, and the ethical responsibilities of inheritance.",
-      duration: "4 weeks",
+      title: "Cultural Acclimatization",
+      description: "Social hierarchy and respect norms, greetings and etiquette, Ghana Time, family structure, and the role of faith in daily life.",
+      duration: "5 lessons",
     },
     {
-      title: "Legacy Mapping",
-      description: "A guided framework for documenting family stories, values, and future intentions.",
-      duration: "6 weeks",
+      title: "Linguistic Basics",
+      description: "Survival phrases in Twi, Ga, and Ewe, everyday expressions, non-verbal communication, and the Akan proverbs that shape how people speak.",
+      duration: "5 lessons",
     },
     {
-      title: "Meaningful Connection",
-      description: "Practical tools for bringing knowledge into lived practice through community and ritual.",
-      duration: "3 weeks",
+      title: "Documentation",
+      description: "Visa types, Right of Abode eligibility, the Ghana Card, customs rules, and the health requirements to sort out before you travel.",
+      duration: "5 lessons",
     },
   ],
+  cta: { label: "Explore Academy Membership", href: "/reserve" },
 };

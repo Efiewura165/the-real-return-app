@@ -4,32 +4,26 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
-import { EditorialHeading } from "@/components/editorial/EditorialHeading";
+import { PageHero } from "@/components/ui/page-hero";
 import { EditorialSection } from "@/components/editorial/EditorialSection";
 import { ImageStory } from "@/components/editorial/ImageStory";
-import { Timeline } from "@/components/editorial/Timeline";
 import { PullQuote } from "@/components/editorial/PullQuote";
 import { StatHighlight } from "@/components/editorial/StatHighlight";
 import { GoldRule } from "@/components/heritage/GoldRule";
 import { buildMetadata } from "@/lib/seo";
 import { getContent } from "@/lib/sanity/fetch";
 import { aboutContent } from "@/content/about";
+import { pillarsContent } from "@/content/homepage/pillars";
 import type { AboutContent } from "@/types/about";
 
 export const metadata: Metadata = buildMetadata("About");
 
 export default async function AboutPage() {
-  const { hero, mission, founderNote, values, milestones, quote, stats } = await getContent<AboutContent>("aboutPage", aboutContent);
+  const { hero, mission, vision, philosophy, quote, stats } = await getContent<AboutContent>("aboutPage", aboutContent);
 
   return (
     <>
-      <Section className="border-b border-border/70">
-        <Container>
-          <Reveal>
-            <EditorialHeading as="h1" align="center" eyebrow={hero.eyebrow} title={hero.title} description={hero.description} className="mx-auto" />
-          </Reveal>
-        </Container>
-      </Section>
+      <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} image={hero.image} />
 
       <Section className="border-b border-border/70">
         <Container>
@@ -41,13 +35,12 @@ export default async function AboutPage() {
               title={mission.title}
               description={mission.body}
             >
-              <div className="flex flex-wrap items-center gap-3 border-t border-black/10 pt-4">
-                <p className="text-sm leading-6 text-foreground/70">{founderNote.body}</p>
+              <div className="border-t border-black/10 pt-4">
                 <Link
-                  href={founderNote.cta.href}
-                  className="whitespace-nowrap text-sm font-medium text-foreground underline decoration-black/20 underline-offset-4 transition-colors hover:text-foreground/70"
+                  href="/founder"
+                  className="text-sm font-medium text-foreground underline decoration-black/20 underline-offset-4 transition-colors hover:text-foreground/70"
                 >
-                  {founderNote.cta.label}
+                  Meet Tarsha, our founder →
                 </Link>
               </div>
             </ImageStory>
@@ -56,17 +49,10 @@ export default async function AboutPage() {
       </Section>
 
       <Section className="border-b border-border/70">
-        <Container>
+        <Container className="max-w-3xl">
           <Reveal>
-            <EditorialSection eyebrow="What guides us" title="A few principles we hold close.">
-              <div className="grid gap-6 sm:grid-cols-3">
-                {values.map((value) => (
-                  <div key={value.title} className="rounded-[0.2rem] border border-black/10 bg-[#f8f2e8]/80 p-6">
-                    <h4 className="font-serif text-xl font-normal text-foreground">{value.title}</h4>
-                    <p className="mt-2 text-sm leading-7 text-foreground/70">{value.description}</p>
-                  </div>
-                ))}
-              </div>
+            <EditorialSection eyebrow={vision.eyebrow} title={vision.title}>
+              <p className="text-base leading-8 text-foreground/70">{vision.body}</p>
             </EditorialSection>
           </Reveal>
         </Container>
@@ -75,8 +61,15 @@ export default async function AboutPage() {
       <Section className="border-b border-border/70">
         <Container>
           <Reveal>
-            <EditorialSection eyebrow="How we got here" title="A short history of the work.">
-              <Timeline items={milestones} />
+            <EditorialSection eyebrow={philosophy.eyebrow} title={philosophy.title} description={philosophy.description}>
+              <div className="grid gap-6 sm:grid-cols-3">
+                {pillarsContent.pillars.map((pillar) => (
+                  <div key={pillar.key} className="rounded-[0.2rem] border border-black/10 bg-[#f8f2e8]/80 p-6">
+                    <h4 className="font-serif text-xl font-normal text-foreground">{pillar.title}</h4>
+                    <p className="mt-2 text-sm leading-7 text-foreground/70">{pillar.description}</p>
+                  </div>
+                ))}
+              </div>
             </EditorialSection>
           </Reveal>
         </Container>

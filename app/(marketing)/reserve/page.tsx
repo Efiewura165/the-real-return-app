@@ -3,25 +3,57 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
-import { EditorialHeading } from "@/components/editorial/EditorialHeading";
+import { PageHero } from "@/components/ui/page-hero";
 import { GoldRule } from "@/components/heritage/GoldRule";
 import { ContactForm } from "@/components/connect/ContactForm";
+import { PricingCard } from "@/components/ui/pricing-card";
+import { EditorialHeading } from "@/components/editorial/EditorialHeading";
 import { buildMetadata } from "@/lib/seo";
 import { getContent } from "@/lib/sanity/fetch";
 import { connectContent } from "@/content/connect";
+import { investmentContent } from "@/content/shared/investment";
 import type { ConnectContent } from "@/types/connect";
 
-export const metadata: Metadata = buildMetadata("Connect");
+export const metadata: Metadata = buildMetadata("Reserve");
 
-export default async function ConnectPage() {
-  const { hero, info, form } = await getContent<ConnectContent>("connectPage", connectContent);
+export default async function ReservePage() {
+  const { hero, journeyOptions, process, info, form } = await getContent<ConnectContent>("reservePage", connectContent);
 
   return (
     <>
+      <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} image={hero.image} />
+
       <Section className="border-b border-border/70">
         <Container>
           <Reveal>
-            <EditorialHeading as="h1" align="center" eyebrow={hero.eyebrow} title={hero.title} description={hero.description} className="mx-auto" />
+            <EditorialHeading align="center" eyebrow={journeyOptions.eyebrow} title={journeyOptions.title} description={journeyOptions.description} className="mx-auto" />
+          </Reveal>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {investmentContent.tiers.map((tier, index) => (
+              <Reveal key={tier.name} delay={index * 0.06}>
+                <PricingCard tier={tier} index={index} featured={index === 1} />
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="border-b border-border/70">
+        <Container className="max-w-3xl">
+          <Reveal>
+            <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{process.eyebrow}</p>
+            <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">{process.title}</h2>
+            <ol className="mt-8 space-y-6">
+              {process.steps.map((step) => (
+                <li key={step.step} className="flex gap-5 border-t border-black/10 pt-6 first:border-t-0 first:pt-0">
+                  <span className="font-serif text-2xl text-foreground/40">{step.step}</span>
+                  <div>
+                    <h4 className="font-serif text-xl font-normal text-foreground">{step.title}</h4>
+                    <p className="mt-1 text-base leading-7 text-foreground/70">{step.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </Reveal>
         </Container>
       </Section>
@@ -32,7 +64,7 @@ export default async function ConnectPage() {
             <Reveal>
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{form.eyebrow}</p>
+                  <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{form.eyebrow}</p>
                   <h2 className="font-serif text-2xl font-normal leading-tight text-foreground sm:text-3xl">{form.title}</h2>
                   <p className="max-w-md text-base leading-8 text-foreground/70">{form.description}</p>
                 </div>

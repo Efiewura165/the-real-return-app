@@ -17,7 +17,13 @@ export const homepageHero = defineType({
     defineField({ name: "subtitle", title: "Supporting text", type: "text" }),
     defineField({ name: "primaryCta", title: "Primary button", type: "linkObject" }),
     defineField({ name: "secondaryCta", title: "Secondary button", type: "linkObject" }),
-    defineField({ name: "image", title: "Hero image", type: "imageWithMeta" }),
+    defineField({
+      name: "images",
+      title: "Hero background photos (auto-rotating)",
+      type: "array",
+      of: [defineArrayMember({ type: "imageWithMeta" })],
+      validation: (rule) => rule.min(1),
+    }),
   ],
 });
 
@@ -181,12 +187,45 @@ export const homepageInvestment = defineType({
           fields: [
             defineField({ name: "name", title: "Name", type: "string", validation: (rule) => rule.required() }),
             defineField({ name: "description", title: "Description", type: "text" }),
+            defineField({ name: "price", title: "Price", type: "string" }),
+            defineField({ name: "priceNote", title: "Price note", type: "string" }),
+            defineField({ name: "accommodation", title: "Accommodation included", type: "text" }),
             defineField({ name: "inclusions", title: "Inclusions", type: "array", of: [defineArrayMember({ type: "string" })] }),
             defineField({ name: "ctaLabel", title: "Button label", type: "string" }),
           ],
         }),
       ],
     }),
+  ],
+});
+
+export const homepageAcademy = defineType({
+  name: "homepageAcademy",
+  title: "Homepage — Academy preview",
+  type: "document",
+  fields: [
+    defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+    defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "description", title: "Description", type: "text" }),
+    defineField({ name: "facilitator", title: "Facilitator credit", type: "string" }),
+    defineField({ name: "image", title: "Image", type: "imageWithMeta" }),
+    defineField({
+      name: "courses",
+      title: "Sample courses",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "object",
+          name: "academyCourse",
+          fields: [
+            defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+            defineField({ name: "description", title: "Description", type: "text" }),
+            defineField({ name: "duration", title: "Duration label", type: "string" }),
+          ],
+        }),
+      ],
+    }),
+    defineField({ name: "cta", title: "Call to action", type: "linkObject" }),
   ],
 });
 
@@ -210,6 +249,7 @@ export const homepageSchemas = [
   homepageExperience,
   homepageReflection,
   homepageLegacyInnovation,
+  homepageAcademy,
   homepageItinerary,
   homepageInvestment,
   homepageCta,

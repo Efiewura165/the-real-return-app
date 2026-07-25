@@ -14,6 +14,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/academy", destination: "/journey-academy", permanent: true },
+      { source: "/journey", destination: "/experiences", permanent: true },
+      { source: "/connect", destination: "/reserve", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

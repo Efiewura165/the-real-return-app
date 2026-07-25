@@ -6,6 +6,6 @@ export const ctaContent: CtaContent = {
   description:
     "Start with a foundation built for knowledge, belonging, and lasting impact.",
   buttons: [
-    { label: "Reserve Your Journey", href: "/connect", variant: "default" },
+    { label: "Reserve Your Journey", href: "/reserve", variant: "default" },
   ],
 };

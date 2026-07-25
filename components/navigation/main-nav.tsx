@@ -7,15 +7,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 import { brandConfig } from "@/config/brand";
+import { navLinks } from "@/config/nav";
 import { SymbolMark } from "@/components/brand/Logo";
 import { cn } from "@/lib/utils";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/journey", label: "Journey" },
-  { href: "/connect", label: "Connect" },
-];
 
 export function MainNav() {
   const pathname = usePathname();
@@ -59,7 +53,7 @@ export function MainNav() {
         aria-hidden={open}
         tabIndex={open ? -1 : 0}
         onClick={() => setOpen(true)}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-muted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hidden"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-muted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
       >
         <Menu className="h-5 w-5" aria-hidden="true" />
       </button>
@@ -92,8 +86,8 @@ export function MainNav() {
               </button>
             </div>
 
-            <nav aria-label="Primary" className="flex flex-1 flex-col items-start justify-center gap-1 px-6 sm:px-8 lg:px-10">
-              {links.map((link, index) => {
+            <nav aria-label="Primary" className="flex flex-1 flex-col items-start justify-center gap-1 overflow-y-auto px-6 py-4 sm:px-8 lg:px-10">
+              {navLinks.map((link, index) => {
                 const isActive = pathname === link.href;
                 const isHovered = hoveredHref === link.href;
                 const dimmed = !isActive && !isHovered;
@@ -109,7 +103,7 @@ export function MainNav() {
                       href={link.href}
                       onMouseEnter={() => setHoveredHref(link.href)}
                       onMouseLeave={() => setHoveredHref(null)}
-                      className={cn("font-serif text-4xl leading-[1.4] transition-opacity duration-300 sm:text-5xl")}
+                      className={cn("font-serif text-3xl leading-[1.35] transition-opacity duration-300 sm:text-4xl")}
                       style={{ fontFamily: brandConfig.typography.display, color: brandConfig.colors.ivory, opacity: dimmed ? 0.62 : 1 }}
                     >
                       {link.label}

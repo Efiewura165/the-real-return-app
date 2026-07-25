@@ -4,13 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { brandConfig } from "@/config/brand";
+import { primaryNavLinks } from "@/config/nav";
 import { cn } from "@/lib/utils";
-
-const links = [
-  { href: "/about", label: "About" },
-  { href: "/journey", label: "Journey" },
-  { href: "/connect", label: "Connect" },
-];
 
 /**
  * Visible link row for desktop/tablet widths — added after the hamburger-
@@ -22,8 +17,8 @@ export function DesktopNav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Primary" className="hidden items-center gap-6 text-sm md:flex" style={{ fontFamily: brandConfig.typography.body }}>
-      {links.map((link) => {
+    <nav aria-label="Primary" className="hidden items-center gap-4 text-sm lg:flex lg:gap-6" style={{ fontFamily: brandConfig.typography.body }}>
+      {primaryNavLinks.map((link) => {
         const isActive = pathname === link.href;
 
         return (

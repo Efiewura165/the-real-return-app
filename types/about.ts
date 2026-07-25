@@ -1,21 +1,11 @@
 import type { ImageAsset } from "@/types/homepage";
 
-export interface AboutMilestone {
-  year: string;
-  title: string;
-  description: string;
-}
-
-export interface AboutValue {
-  title: string;
-  description: string;
-}
-
 export interface AboutContent {
   hero: {
     eyebrow: string;
     title: string;
     description: string;
+    image: ImageAsset;
   };
   mission: {
     eyebrow: string;
@@ -23,13 +13,16 @@ export interface AboutContent {
     body: string;
     image: ImageAsset;
   };
-  founderNote: {
+  vision: {
     eyebrow: string;
+    title: string;
     body: string;
-    cta: { label: string; href: string };
   };
-  values: AboutValue[];
-  milestones: AboutMilestone[];
+  philosophy: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
   quote: {
     quote: string;
     attribution: string;
