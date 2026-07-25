@@ -40,3 +40,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude code local settings (machine-specific, not for sharing)
+.claude/settings.local.json
+
+# mood-board / inspiration images of unclear license (Getty previews, web
+# search saves) — reference-only, never meant to ship or enter git history
+/assets/

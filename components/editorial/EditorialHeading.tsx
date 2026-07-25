@@ -22,7 +22,7 @@ export function EditorialHeading({
   return (
     <header className={cn("space-y-4", align === "center" ? "mx-auto max-w-3xl text-center" : "text-left", className)} {...props}>
       {eyebrow ? (
-        <p className="text-[0.7rem] uppercase tracking-[0.35em]" style={{ color: brandConfig.colors.earth }}>
+        <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em]" style={{ color: brandConfig.colors.earth }}>
           {eyebrow}
         </p>
       ) : null}

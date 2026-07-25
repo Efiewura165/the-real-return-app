@@ -27,10 +27,10 @@ export const brandConfig = {
     smoke: "#6b675c",
   },
   typography: {
-    display: "'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif",
-    editorial: "'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif",
-    body: "'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
-    caption: "'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
+    display: "var(--font-serif), 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif",
+    editorial: "var(--font-serif), 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif",
+    body: "var(--font-sans), 'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
+    caption: "var(--font-sans), 'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
   },
   spacing: {
     section: "clamp(4rem, 8vw, 7rem)",

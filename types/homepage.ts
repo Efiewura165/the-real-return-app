@@ -22,7 +22,7 @@ export interface HeroChapterContent {
   subtitle: string;
   primaryCta: HomepageLink;
   secondaryCta?: HomepageLink;
-  image: ImageAsset;
+  images: ImageAsset[];
 }
 
 export interface StoryChapterContent {
@@ -45,12 +45,14 @@ export interface CoursePreview {
   eyebrow: string;
   title: string;
   description: string;
+  facilitator: string;
   image: ImageAsset;
   courses: Array<{
     title: string;
     description: string;
     duration: string;
   }>;
+  cta: HomepageLink;
 }
 
 export interface HeritageItem {
@@ -152,6 +154,9 @@ export interface ItineraryContent {
 export interface InvestmentTier {
   name: string;
   description: string;
+  price: string;
+  priceNote?: string;
+  accommodation: string;
   inclusions: string[];
   ctaLabel: string;
 }

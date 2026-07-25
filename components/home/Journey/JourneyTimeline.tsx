@@ -17,7 +17,7 @@ export function JourneyTimeline({ stages }: JourneyTimelineProps) {
       <Container className="py-16 sm:py-24">
         <Reveal>
           <div className="max-w-3xl space-y-4">
-            <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">The journey</p>
+            <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">The journey</p>
             <Heading as="h2" className="text-3xl sm:text-4xl">
               Learn, connect, experience, and build in a coherent path of return.
             </Heading>

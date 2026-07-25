@@ -6,6 +6,32 @@ export const journeyPageContent: JourneyPageContent = {
     title: "A journey held together by place, ritual, and memory.",
     description:
       "The full itinerary behind The Real Return™ — a sequence of arrival, reflection, craft, and legacy-building across Ghana. Each stop carries its own pace and its own work.",
+    image: {
+      src: "/images/stock/kente-weaving-loom.jpg",
+      alt: "A craftsman weaves colorful Kente cloth on a traditional loom in Accra, Ghana",
+    },
+  },
+  carousel: {
+    eyebrow: "Moments of return",
+    title: "What the journey actually feels like.",
+    description: "From arrival at Kotoka to the pride of the Year of Return and the energy of December in Accra, this is the arc every pilgrim moves through.",
+    slides: [
+      {
+        src: "/images/journey/kotoka-airport-accra.jpg",
+        alt: "Traffic and street life in Accra near Kotoka International Airport, where diasporans arrive",
+        caption: "Kotoka International Airport — the first steps of the return.",
+      },
+      {
+        src: "/images/journey/year-of-return-celebration.jpg",
+        alt: "A Ghanaian celebration with kente cloth and flags, in the spirit of the Year of Return",
+        caption: "Year of Return — pride made visible.",
+      },
+      {
+        src: "/images/journey/dirty-december-accra.jpg",
+        alt: "A vibrant street crowd in Accra during the December festive season",
+        caption: "Detty December — the energy of homecoming.",
+      },
+    ],
   },
   stages: [
     {
@@ -73,10 +99,15 @@ export const journeyPageContent: JourneyPageContent = {
       ],
     },
   ],
+  futureJourneys: {
+    eyebrow: "What's next",
+    title: "Future African journeys.",
+    description: "Ghana is where The Real Return™ began — not where it ends. We're in early development on experiences beyond Ghana; join the newsletter to hear where we go next.",
+  },
   closing: {
     eyebrow: "Begin where you are",
     title: "Every family starts at a different stage.",
     description: "A steward will help you find the right entry point into the journey, whether that is the full itinerary or a single guided visit.",
-    cta: { label: "Connect with a steward", href: "/connect" },
+    cta: { label: "Connect with a steward", href: "/reserve" },
   },
 };

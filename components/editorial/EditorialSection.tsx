@@ -12,7 +12,7 @@ export function EditorialSection({ eyebrow, title, description, children, classN
   return (
     <section className={cn("space-y-8", className)} {...props}>
       <div className="space-y-4">
-        {eyebrow ? <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{eyebrow}</p> : null}
+        {eyebrow ? <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{eyebrow}</p> : null}
         <h3 className="font-serif text-2xl font-normal leading-tight text-foreground sm:text-3xl">{title}</h3>
         {description ? <p className="max-w-3xl text-base leading-8 text-foreground/70">{description}</p> : null}
       </div>

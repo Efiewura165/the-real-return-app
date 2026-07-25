@@ -13,18 +13,18 @@ export function HeroContent({ content }: HeroContentProps) {
         {content.brandStack.map((line, index) => (
           <p
             key={line}
-            className="text-[0.72rem] uppercase tracking-[0.35em]"
+            className="text-[0.8125rem] font-medium uppercase tracking-[0.22em]"
             style={{ color: index === 0 ? brandConfig.colors.goldLuxury : `${brandConfig.colors.ivory}b3` }}
           >
             {line}
           </p>
         ))}
         {content.location ? (
-          <p className="text-[0.72rem] uppercase tracking-[0.35em]" style={{ color: `${brandConfig.colors.ivory}b3` }}>
+          <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em]" style={{ color: `${brandConfig.colors.ivory}b3` }}>
             {content.location}
           </p>
         ) : null}
-        <p className="text-[0.72rem] uppercase tracking-[0.35em]" style={{ color: `${brandConfig.colors.ivory}b3` }}>
+        <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em]" style={{ color: `${brandConfig.colors.ivory}b3` }}>
           {content.eyebrow}
         </p>
       </div>

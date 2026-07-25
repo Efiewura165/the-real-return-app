@@ -13,7 +13,7 @@ export function StoryLayout({ eyebrow, title, description, aside, children, clas
   return (
     <section className={cn("grid gap-10 lg:grid-cols-[1.2fr_0.8fr]", className)} {...props}>
       <div className="space-y-6">
-        {eyebrow ? <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{eyebrow}</p> : null}
+        {eyebrow ? <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{eyebrow}</p> : null}
         <h3 className="font-serif text-2xl font-normal leading-tight text-foreground sm:text-3xl">{title}</h3>
         {description ? <p className="max-w-2xl text-base leading-8 text-foreground/70">{description}</p> : null}
         <div className="space-y-4">{children}</div>

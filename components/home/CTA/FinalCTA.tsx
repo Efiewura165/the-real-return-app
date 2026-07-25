@@ -18,7 +18,7 @@ export function FinalCTA({ content }: FinalCTAProps) {
       <Container className="py-16 sm:py-24">
         <Reveal>
           <div className="rounded-[2.5rem] border border-border/70 bg-background/70 p-8 shadow-[0_20px_60px_rgba(8,15,12,0.12)] sm:p-10 lg:p-12">
-            <p className="text-[0.72rem] uppercase tracking-[0.35em] text-foreground/65">{content.eyebrow}</p>
+            <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{content.eyebrow}</p>
             <Heading as="h2" className="mt-4 text-3xl sm:text-4xl">
               {content.title}
             </Heading>

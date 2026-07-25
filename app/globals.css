@@ -36,3 +36,26 @@ body {
   background: rgba(182, 134, 60, 0.26);
   color: var(--foreground);
 }
+
+/* Slow single push-in on hero/page background photos — documentary
+   film language, settles once and holds. Pure CSS: starts on load
+   without waiting for JS hydration, and prefers-reduced-motion is a
+   plain media query rather than a runtime check. */
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.photo-slow-zoom {
+  animation: slow-zoom 22s linear 0.3s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-slow-zoom {
+    animation: none;
+  }
+}

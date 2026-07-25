@@ -13,7 +13,7 @@ export function Reflection({ content }: ReflectionProps) {
     <Section id="reflection" style={{ backgroundColor: brandConfig.colors.primary }}>
       <Container className="max-w-3xl py-20 text-center sm:py-28">
         <Reveal>
-          <p className="text-[0.7rem] uppercase tracking-[0.35em]" style={{ color: `${brandConfig.colors.goldLuxury}` }}>
+          <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em]" style={{ color: `${brandConfig.colors.goldLuxury}` }}>
             {content.eyebrow}
           </p>
           <h2

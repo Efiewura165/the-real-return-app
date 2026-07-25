@@ -9,8 +9,8 @@ export const storyContent: StoryChapterContent = {
     "To return is not only to revisit a place. It is to meet the past with dignity and continue the work of meaning.",
   attribution: "The Real Return Studio",
   image: {
-    src: "/images/placeholder/story-documentary.svg",
-    alt: "A documentary-style study of Ghanaian heritage, weaving patterns, and landscape",
+    src: "/images/stock/kente-weaving-loom.jpg",
+    alt: "A traditional kente loom mid-weave, threads in the region's signature colors",
     caption: "A portrait of place, memory, and the intimate work of remembering together through Ghanaian craft and landscape.",
     meta: "Field notes • Ghanaian memory",
   },
