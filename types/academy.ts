@@ -20,6 +20,7 @@ export interface AcademyPhase {
 
 export interface AcademyProgram {
   name: string;
+  tagline: string;
   description: string;
 }
 

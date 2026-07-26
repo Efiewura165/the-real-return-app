@@ -9,7 +9,10 @@ export interface FounderPageContent {
   };
   name: string;
   role: string;
-  body: string[];
+  story: string;
+  educationBackground: { title: string; body: string };
+  passion: { title: string; body: string };
+  vision: { title: string; body: string };
   pullQuote: string;
   cta: { label: string; href: string };
 }

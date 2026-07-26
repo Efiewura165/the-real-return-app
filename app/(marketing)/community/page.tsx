@@ -17,7 +17,10 @@ import type { CommunityPageContent } from "@/types/community";
 export const metadata: Metadata = buildMetadata("Community");
 
 export default async function CommunityPage() {
-  const { hero, stories, newsletter, events, connections } = await getContent<CommunityPageContent>("communityPage", communityPageContent);
+  const { hero, stories, newsletter, events, culturalConversations, globalConnections } = await getContent<CommunityPageContent>(
+    "communityPage",
+    communityPageContent,
+  );
 
   return (
     <>
@@ -52,14 +55,30 @@ export default async function CommunityPage() {
         </Container>
       </Section>
 
+      <Section className="border-b border-border/70">
+        <Container className="max-w-2xl">
+          <Reveal>
+            <EditorialSection eyebrow={culturalConversations.eyebrow} title={culturalConversations.title} description={culturalConversations.description}>
+              <ul className="space-y-2 border-t border-black/10 pt-4">
+                {culturalConversations.topics.map((topic) => (
+                  <li key={topic} className="text-sm leading-6 text-foreground/70">
+                    {topic}
+                  </li>
+                ))}
+              </ul>
+            </EditorialSection>
+          </Reveal>
+        </Container>
+      </Section>
+
       <Section>
         <Container className="max-w-2xl text-center">
           <Reveal>
-            <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{connections.eyebrow}</p>
-            <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">{connections.title}</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-foreground/70">{connections.description}</p>
+            <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">{globalConnections.eyebrow}</p>
+            <h2 className="mt-4 font-serif text-3xl font-normal leading-tight text-foreground sm:text-4xl">{globalConnections.title}</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-foreground/70">{globalConnections.description}</p>
             <Button asChild size="lg" className="mt-8">
-              <Link href={connections.cta.href}>{connections.cta.label}</Link>
+              <Link href={globalConnections.cta.href}>{globalConnections.cta.label}</Link>
             </Button>
           </Reveal>
         </Container>

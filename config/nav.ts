@@ -11,3 +11,6 @@ export const navLinks = [
 
 /** Desktop bar and footer omit Home — the logo covers that role. */
 export const primaryNavLinks = navLinks.filter((link) => link.href !== "/");
+
+/** Secondary nav — shown separately from the primary menu (e.g. a smaller link near the CTA). */
+export const secondaryNavLinks = [{ href: "/invest", label: "Invest" }] as const;

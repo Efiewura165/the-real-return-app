@@ -22,6 +22,11 @@ export interface JourneyPageContent {
     slides: ImageAsset[];
   };
   stages: JourneyPageStage[];
+  experienceHighlights: {
+    eyebrow: string;
+    title: string;
+    items: Array<{ title: string; description: string }>;
+  };
   futureJourneys: {
     eyebrow: string;
     title: string;

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { brandConfig } from "@/config/brand";
-import { primaryNavLinks } from "@/config/nav";
+import { primaryNavLinks, secondaryNavLinks } from "@/config/nav";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,7 +17,7 @@ export function DesktopNav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Primary" className="hidden items-center gap-4 text-sm lg:flex lg:gap-6" style={{ fontFamily: brandConfig.typography.body }}>
+    <nav aria-label="Primary" className="hidden items-center gap-1 text-sm lg:flex lg:gap-1.5" style={{ fontFamily: brandConfig.typography.body }}>
       {primaryNavLinks.map((link) => {
         const isActive = pathname === link.href;
 
@@ -25,7 +25,27 @@ export function DesktopNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={cn("text-foreground/70 transition-colors hover:text-foreground", isActive && "text-foreground")}
+            className={cn(
+              "shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 text-foreground/70 transition-colors hover:bg-foreground hover:text-background",
+              isActive && "text-foreground",
+            )}
+          >
+            {link.label}
+          </Link>
+        );
+      })}
+      <span className="mx-1 h-4 w-px shrink-0 bg-border/70" aria-hidden="true" />
+      {secondaryNavLinks.map((link) => {
+        const isActive = pathname === link.href;
+
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={cn(
+              "shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 text-foreground/50 transition-colors hover:bg-foreground hover:text-background",
+              isActive && "text-foreground/80",
+            )}
           >
             {link.label}
           </Link>

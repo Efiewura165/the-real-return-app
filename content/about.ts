@@ -11,6 +11,16 @@ export const aboutContent: AboutContent = {
       alt: "View through the archway of the historic Elmina Castle overlooking the sea in Ghana",
     },
   },
+  question: {
+    eyebrow: "The question behind The Real Return™",
+    title: "What happens when we truly reconnect with where we come from?",
+    body: "That question — not a business plan — is where this began. Not as a travel idea, but as a personal one: what changes when connection to heritage becomes deliberate instead of accidental?",
+  },
+  story: {
+    eyebrow: "Our story",
+    title: "Built from one return, into a framework for many.",
+    body: "One educator's own journey back to Ghana became the blueprint. What started as a personal return grew into a considered framework — for families, for educators, for anyone ready to move past a single story of Africa and into a lived one.",
+  },
   mission: {
     eyebrow: "Why we began",
     title: "Return is a practice, not a single trip.",

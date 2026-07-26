@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
-import { primaryNavLinks } from "@/config/nav";
+import { primaryNavLinks, secondaryNavLinks } from "@/config/nav";
 
 export function Footer() {
   return (
@@ -10,6 +10,14 @@ export function Footer() {
         <p>© 2026 The Real Return. Reconnect with intention.</p>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           {primaryNavLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="transition-colors hover:text-foreground">
+              {link.label}
+            </Link>
+          ))}
+          <span className="text-foreground/30" aria-hidden="true">
+            |
+          </span>
+          {secondaryNavLinks.map((link) => (
             <Link key={link.href} href={link.href} className="transition-colors hover:text-foreground">
               {link.label}
             </Link>

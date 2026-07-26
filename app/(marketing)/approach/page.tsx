@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { PageHero } from "@/components/ui/page-hero";
 import { EditorialSection } from "@/components/editorial/EditorialSection";
 import { Timeline } from "@/components/editorial/Timeline";
+import { brandConfig } from "@/config/brand";
 import { buildMetadata } from "@/lib/seo";
 import { getContent } from "@/lib/sanity/fetch";
 import { approachPageContent } from "@/content/approach";
@@ -27,7 +28,10 @@ export default async function ApproachPage() {
               <div className="grid gap-6 sm:grid-cols-3">
                 {pillars.map((pillar) => (
                   <div key={pillar.key} className="rounded-[0.2rem] border border-black/10 bg-[#f8f2e8]/80 p-6 text-left">
-                    <h4 className="font-serif text-xl font-normal text-foreground">{pillar.title}</h4>
+                    <p className="text-[0.7rem] uppercase tracking-[0.2em]" style={{ color: brandConfig.colors.gold }}>
+                      {pillar.title}
+                    </p>
+                    <h4 className="mt-2 font-serif text-lg font-normal text-foreground">{pillar.tagline}</h4>
                     <p className="mt-2 text-sm leading-7 text-foreground/70">{pillar.description}</p>
                   </div>
                 ))}

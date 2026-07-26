@@ -14,6 +14,8 @@ const titleOverrides: Record<string, string> = {
   homepageAcademy: "Academy Preview",
   homepageItinerary: "Itinerary Preview",
   homepageInvestment: "Investment Tiers",
+  homepageCommunityInvitation: "Community Invitation",
+  homepageInvest: "Invest Teaser",
   homepageCta: "Final CTA",
   aboutPage: "About Page",
   founderPage: "Founder Page",
@@ -22,6 +24,7 @@ const titleOverrides: Record<string, string> = {
   experiencesPage: "Experiences Page",
   communityPage: "Community Page",
   reservePage: "Reserve Page",
+  investPage: "Invest Page",
 };
 
 // Every content type here is a singleton — one fixed document per type,

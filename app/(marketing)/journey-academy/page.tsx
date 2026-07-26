@@ -24,16 +24,23 @@ export default async function JourneyAcademyPage() {
       <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} image={hero.image} />
 
       <Section className="border-b border-border/70">
-        <Container>
+        <Container className="max-w-2xl">
           <Reveal>
-            <div className="grid gap-6 sm:grid-cols-2">
-              {programs.map((program) => (
-                <div key={program.name} className="rounded-[0.2rem] border border-black/10 bg-[#f8f2e8]/80 p-6">
-                  <h4 className="font-serif text-xl font-normal text-foreground">{program.name}</h4>
+            <ol className="space-y-8">
+              {programs.map((program, index) => (
+                <li key={program.name} className="relative border-l border-black/10 pl-6">
+                  <span
+                    className="absolute -left-[0.9rem] top-0 flex h-7 w-7 items-center justify-center rounded-full text-xs font-medium text-background"
+                    style={{ backgroundColor: brandConfig.colors.gold }}
+                  >
+                    {index + 1}
+                  </span>
+                  <p className="text-[0.7rem] uppercase tracking-[0.2em] text-foreground/55">{program.tagline}</p>
+                  <h4 className="mt-2 font-serif text-xl font-normal text-foreground">{program.name}</h4>
                   <p className="mt-2 text-sm leading-7 text-foreground/70">{program.description}</p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </Reveal>
         </Container>
       </Section>

@@ -24,7 +24,13 @@ export interface CommunityPageContent {
     description: string;
     emptyStateMessage: string;
   };
-  connections: {
+  culturalConversations: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    topics: string[];
+  };
+  globalConnections: {
     eyebrow: string;
     title: string;
     description: string;

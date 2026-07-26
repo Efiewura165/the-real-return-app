@@ -17,6 +17,26 @@ export const aboutPage = defineType({
       ],
     }),
     defineField({
+      name: "question",
+      title: "The Question Behind The Real Return™",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "body", title: "Body", type: "text" }),
+      ],
+    }),
+    defineField({
+      name: "story",
+      title: "Our Story",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "body", title: "Body", type: "text" }),
+      ],
+    }),
+    defineField({
       name: "mission",
       title: "Mission",
       type: "object",
@@ -93,7 +113,34 @@ export const founderPage = defineType({
     }),
     defineField({ name: "name", title: "Founder name", type: "string" }),
     defineField({ name: "role", title: "Founder role", type: "string" }),
-    defineField({ name: "body", title: "Body paragraphs", type: "array", of: [defineArrayMember({ type: "text" })] }),
+    defineField({ name: "story", title: "Founder story (opening line)", type: "text" }),
+    defineField({
+      name: "educationBackground",
+      title: "Education Background",
+      type: "object",
+      fields: [
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "body", title: "Body", type: "text" }),
+      ],
+    }),
+    defineField({
+      name: "passion",
+      title: "Passion for Culture & Learning",
+      type: "object",
+      fields: [
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "body", title: "Body", type: "text" }),
+      ],
+    }),
+    defineField({
+      name: "vision",
+      title: "Vision Behind The Real Return™",
+      type: "object",
+      fields: [
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "body", title: "Body", type: "text" }),
+      ],
+    }),
     defineField({ name: "pullQuote", title: "Pull quote", type: "text" }),
     defineField({ name: "cta", title: "Call to action", type: "linkObject" }),
   ],
@@ -143,6 +190,7 @@ export const approachPage = defineType({
               validation: (rule) => rule.required(),
             }),
             defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+            defineField({ name: "tagline", title: "Tagline", type: "string" }),
             defineField({ name: "description", title: "Description", type: "text" }),
           ],
         }),
@@ -218,6 +266,7 @@ export const journeyAcademyPage = defineType({
           name: "academyProgram",
           fields: [
             defineField({ name: "name", title: "Name", type: "string", validation: (rule) => rule.required() }),
+            defineField({ name: "tagline", title: "Tagline", type: "string" }),
             defineField({ name: "description", title: "Description", type: "text" }),
           ],
         }),
@@ -345,6 +394,30 @@ export const experiencesPage = defineType({
       ],
     }),
     defineField({
+      name: "experienceHighlights",
+      title: "Experience highlights (Educational / Cultural Immersion)",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({
+          name: "items",
+          title: "Items",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "object",
+              name: "experienceHighlightItem",
+              fields: [
+                defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+                defineField({ name: "description", title: "Description", type: "text" }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
       name: "futureJourneys",
       title: "Future journeys",
       type: "object",
@@ -432,8 +505,19 @@ export const communityPage = defineType({
       ],
     }),
     defineField({
-      name: "connections",
-      title: "Connections",
+      name: "culturalConversations",
+      title: "Cultural Conversations",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "description", title: "Description", type: "text" }),
+        defineField({ name: "topics", title: "Topics", type: "array", of: [defineArrayMember({ type: "string" })] }),
+      ],
+    }),
+    defineField({
+      name: "globalConnections",
+      title: "Global Connections",
       type: "object",
       fields: [
         defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
@@ -525,5 +609,134 @@ export const reservePage = defineType({
   ],
 });
 
-export const pageSchemas = [aboutPage, founderPage, approachPage, journeyAcademyPage, experiencesPage, communityPage, reservePage];
+export const investPage = defineType({
+  name: "investPage",
+  title: "Invest page",
+  type: "document",
+  fields: [
+    defineField({
+      name: "hero",
+      title: "Hero",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+        defineField({ name: "description", title: "Description", type: "text" }),
+        defineField({ name: "image", title: "Hero image", type: "imageWithMeta" }),
+      ],
+    }),
+    defineField({
+      name: "whyInvest",
+      title: "Why Invest",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "description", title: "Description", type: "text" }),
+        defineField({
+          name: "points",
+          title: "Points",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "object",
+              name: "investHighlightItem",
+              fields: [
+                defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+                defineField({ name: "description", title: "Description", type: "text" }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: "strategicPartnerships",
+      title: "Strategic Partnerships",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "description", title: "Description", type: "text" }),
+        defineField({
+          name: "items",
+          title: "Items",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "object",
+              name: "investPartnershipItem",
+              fields: [
+                defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+                defineField({ name: "description", title: "Description", type: "text" }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: "sponsors",
+      title: "Sponsors",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "description", title: "Description", type: "text" }),
+        defineField({
+          name: "items",
+          title: "Items",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "object",
+              name: "investSponsorItem",
+              fields: [
+                defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+                defineField({ name: "description", title: "Description", type: "text" }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: "investors",
+      title: "Investors",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "description", title: "Description", type: "text" }),
+        defineField({
+          name: "points",
+          title: "Points",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "object",
+              name: "investInvestorItem",
+              fields: [
+                defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+                defineField({ name: "description", title: "Description", type: "text" }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: "form",
+      title: "Form copy",
+      type: "object",
+      fields: [
+        defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({ name: "description", title: "Description", type: "text" }),
+      ],
+    }),
+  ],
+});
+
+export const pageSchemas = [aboutPage, founderPage, approachPage, journeyAcademyPage, experiencesPage, communityPage, reservePage, investPage];
 export const pageSingletonNames = pageSchemas.map((schema) => schema.name);

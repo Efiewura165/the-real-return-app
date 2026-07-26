@@ -43,10 +43,20 @@ export const communityPageContent: CommunityPageContent = {
     description: "From virtual info sessions to in-person meetups before a journey departs.",
     emptyStateMessage: "No events are scheduled right now — join the newsletter to hear about the next one first.",
   },
-  connections: {
-    eyebrow: "Connections",
+  culturalConversations: {
+    eyebrow: "Cultural Conversations",
+    title: "Ongoing dialogue, not a one-time visit.",
+    description: "Recurring conversations — hosted with historians, artisans, and returning families — that keep the learning alive between journeys.",
+    topics: [
+      "Heritage & identity in the diaspora",
+      "Ghanaian history beyond the textbook",
+      "Building generational legacy at home and abroad",
+    ],
+  },
+  globalConnections: {
+    eyebrow: "Global Connections",
     title: "Find others on the same path.",
-    description: "Whether you're planning your first visit or already deep into the Academy curriculum, you don't have to do this alone.",
+    description: "Whether you're planning your first visit or already deep into the Academy curriculum, you don't have to do this alone — this community spans the diaspora, not just one trip.",
     cta: { label: "Connect with a steward", href: "/reserve" },
   },
 };

@@ -99,6 +99,20 @@ export const journeyPageContent: JourneyPageContent = {
       ],
     },
   ],
+  experienceHighlights: {
+    eyebrow: "Beyond the itinerary",
+    title: "Every journey is educational, and every journey is immersive.",
+    items: [
+      {
+        title: "Educational Experiences",
+        description: "Each stop is paired with Academy coursework, so what you learn beforehand deepens what you encounter in place — history and craft explained by the historians and artisans who hold it.",
+      },
+      {
+        title: "Cultural Immersion",
+        description: "Time built for participation, not observation — weaving alongside artisans, sharing meals with host families, and taking part in ceremony where it's offered, never staged.",
+      },
+    ],
+  },
   futureJourneys: {
     eyebrow: "What's next",
     title: "Future African journeys.",

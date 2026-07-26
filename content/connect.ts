@@ -22,18 +22,28 @@ export const connectContent: ConnectContent = {
     steps: [
       {
         step: "01",
-        title: "Send your inquiry",
-        description: "Tell us a little about your family or organization and which journey you're drawn to.",
+        title: "Choose Your Experience",
+        description: "Explore the Legacy Journey, Signature Return, or Crown Legacy Experience and find the tier that fits where you are.",
       },
       {
         step: "02",
-        title: "Talk with a steward",
-        description: "A steward will reach out within two business days to answer questions and shape the details with you.",
+        title: "Reserve Your Place",
+        description: "Send your inquiry and a steward will reach out within two business days to confirm dates and details.",
       },
       {
         step: "03",
-        title: "Confirm your journey",
-        description: "Once dates and tier are set, your steward guides you through documentation, preparation, and departure.",
+        title: "Complete Preparation Experience™",
+        description: "Before you depart, work through the Journey Preparation Experience™ — the Academy module built to prepare your mind and open your heart for what's ahead.",
+      },
+      {
+        step: "04",
+        title: "Experience Your Journey",
+        description: "Travel to Ghana with your steward's guidance at every stage, from arrival through departure.",
+      },
+      {
+        step: "05",
+        title: "Continue The Connection",
+        description: "Your return doesn't end at the airport — join the Community for ongoing conversation, events, and connection with others on the same path.",
       },
     ],
   },

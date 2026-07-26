@@ -9,5 +9,7 @@ export const homepageSections = [
   "academy",
   "itinerary",
   "investment",
+  "community-invitation",
+  "invest",
   "cta",
 ] as const;

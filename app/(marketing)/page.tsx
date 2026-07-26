@@ -21,6 +21,8 @@ import { legacyInnovationContent } from "@/content/homepage/legacy-innovation";
 import { academyPreview } from "@/content/homepage/academy";
 import { itineraryContent } from "@/content/homepage/itinerary";
 import { investmentContent } from "@/content/shared/investment";
+import { communityInvitationContent } from "@/content/homepage/community-invitation";
+import { investSectionContent } from "@/content/homepage/invest";
 import { ctaContent } from "@/content/homepage/cta";
 import type {
   CoursePreview,
@@ -37,19 +39,22 @@ import type {
 } from "@/types/homepage";
 
 export default async function HomePage() {
-  const [hero, why, pillars, founder, experience, reflection, legacyInnovation, academy, itinerary, investment, cta] = await Promise.all([
-    getContent<HeroChapterContent>("homepageHero", heroContent),
-    getContent<WhyContent>("homepageWhy", whyContent),
-    getContent<PillarsContent>("homepagePillars", pillarsContent),
-    getContent<FounderStoryContent>("homepageFounder", founderContent),
-    getContent<ExperienceGalleryContent>("homepageExperience", experienceContent),
-    getContent<ReflectionContent>("homepageReflection", reflectionContent),
-    getContent<LegacyInnovationContent>("homepageLegacyInnovation", legacyInnovationContent),
-    getContent<CoursePreview>("homepageAcademy", academyPreview),
-    getContent<ItineraryContent>("homepageItinerary", itineraryContent),
-    getContent<InvestmentContent>("homepageInvestment", investmentContent),
-    getContent<CtaContent>("homepageCta", ctaContent),
-  ]);
+  const [hero, why, pillars, founder, experience, reflection, legacyInnovation, academy, itinerary, investment, communityInvitation, invest, cta] =
+    await Promise.all([
+      getContent<HeroChapterContent>("homepageHero", heroContent),
+      getContent<WhyContent>("homepageWhy", whyContent),
+      getContent<PillarsContent>("homepagePillars", pillarsContent),
+      getContent<FounderStoryContent>("homepageFounder", founderContent),
+      getContent<ExperienceGalleryContent>("homepageExperience", experienceContent),
+      getContent<ReflectionContent>("homepageReflection", reflectionContent),
+      getContent<LegacyInnovationContent>("homepageLegacyInnovation", legacyInnovationContent),
+      getContent<CoursePreview>("homepageAcademy", academyPreview),
+      getContent<ItineraryContent>("homepageItinerary", itineraryContent),
+      getContent<InvestmentContent>("homepageInvestment", investmentContent),
+      getContent<CtaContent>("homepageCommunityInvitation", communityInvitationContent),
+      getContent<CtaContent>("homepageInvest", investSectionContent),
+      getContent<CtaContent>("homepageCta", ctaContent),
+    ]);
 
   return (
     <>
@@ -63,6 +68,8 @@ export default async function HomePage() {
       {homepageSections.includes("academy") ? <AcademyPreview content={academy} /> : null}
       {homepageSections.includes("itinerary") ? <ItineraryPreview content={itinerary} /> : null}
       {homepageSections.includes("investment") ? <InvestmentPreview content={investment} /> : null}
+      {homepageSections.includes("community-invitation") ? <FinalCTA id="community-invitation" content={communityInvitation} /> : null}
+      {homepageSections.includes("invest") ? <FinalCTA id="invest" content={invest} /> : null}
       {homepageSections.includes("cta") ? <FinalCTA content={cta} /> : null}
     </>
   );

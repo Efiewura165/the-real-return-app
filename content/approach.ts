@@ -19,16 +19,19 @@ export const approachPageContent: ApproachPageContent = {
     {
       key: "people",
       title: "People",
+      tagline: "The Stories That Connect Us",
       description: "Every journey is guided by cultural stewards, historians, and community partners in Ghana — never a script written from a distance.",
     },
     {
       key: "place",
       title: "Place",
+      tagline: "The Places That Shape The Story",
       description: "Every experience is rooted in real, specific places — Cape Coast, Kakum, Kumasi — studied and honored, not staged for a photo.",
     },
     {
       key: "purpose",
       title: "Purpose",
+      tagline: "Experiences That Create Connection",
       description: "Every detail serves the larger framework of Remember. Return. Rebuild.™ — nothing is included for spectacle's sake.",
     },
   ],

@@ -7,6 +7,16 @@ export interface AboutContent {
     description: string;
     image: ImageAsset;
   };
+  question: {
+    eyebrow: string;
+    title: string;
+    body: string;
+  };
+  story: {
+    eyebrow: string;
+    title: string;
+    body: string;
+  };
   mission: {
     eyebrow: string;
     title: string;

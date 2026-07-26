@@ -20,7 +20,10 @@ import type { JourneyPageContent } from "@/types/journey";
 export const metadata: Metadata = buildMetadata("Experiences");
 
 export default async function ExperiencesPage() {
-  const { hero, carousel, stages, futureJourneys, closing } = await getContent<JourneyPageContent>("experiencesPage", journeyPageContent);
+  const { hero, carousel, stages, experienceHighlights, futureJourneys, closing } = await getContent<JourneyPageContent>(
+    "experiencesPage",
+    journeyPageContent,
+  );
 
   return (
     <>
@@ -89,6 +92,29 @@ export default async function ExperiencesPage() {
             {investmentContent.tiers.map((tier, index) => (
               <Reveal key={tier.name} delay={index * 0.06}>
                 <PricingCard tier={tier} index={index} featured={index === 1} />
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="border-b border-border/70">
+        <Container>
+          <Reveal>
+            <EditorialHeading
+              align="center"
+              eyebrow={experienceHighlights.eyebrow}
+              title={experienceHighlights.title}
+              className="mx-auto"
+            />
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {experienceHighlights.items.map((item, index) => (
+              <Reveal key={item.title} delay={index * 0.06}>
+                <div className="h-full rounded-[1.5rem] border border-border/70 bg-background/70 p-6 shadow-[0_12px_32px_rgba(8,15,12,0.06)]">
+                  <h3 className="font-serif text-xl font-normal text-foreground">{item.title}</h3>
+                  <p className="mt-3 text-base leading-7 text-foreground/70">{item.description}</p>
+                </div>
               </Reveal>
             ))}
           </div>

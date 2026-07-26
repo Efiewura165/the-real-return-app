@@ -8,7 +8,7 @@
  * SANITY_API_WRITE_TOKEN (a token with Editor/Administrator rights,
  * created at https://www.sanity.io/manage under your project's API tab)
  * in .env.local. Safe to re-run — every document is createOrReplace'd by
- * a fixed id, so re-running just overwrites the same 18 documents.
+ * a fixed id, so re-running just overwrites the same 21 documents.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -33,6 +33,8 @@ import { legacyInnovationContent } from "../content/homepage/legacy-innovation";
 import { academyPreview } from "../content/homepage/academy";
 import { itineraryContent } from "../content/homepage/itinerary";
 import { investmentContent } from "../content/shared/investment";
+import { communityInvitationContent } from "../content/homepage/community-invitation";
+import { investSectionContent } from "../content/homepage/invest";
 import { ctaContent } from "../content/homepage/cta";
 import { aboutContent } from "../content/about";
 import { founderPageContent } from "../content/founder";
@@ -41,6 +43,7 @@ import { academyPageContent } from "../content/academy";
 import { journeyPageContent } from "../content/journey";
 import { communityPageContent } from "../content/community";
 import { connectContent } from "../content/connect";
+import { investPageContent } from "../content/invest";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
@@ -189,6 +192,20 @@ async function seed() {
     tiers: withKeys(investmentContent.tiers),
   });
 
+  await set("homepageCommunityInvitation", "homepageCommunityInvitation", {
+    eyebrow: communityInvitationContent.eyebrow,
+    title: communityInvitationContent.title,
+    description: communityInvitationContent.description,
+    buttons: withKeys(communityInvitationContent.buttons),
+  });
+
+  await set("homepageInvest", "homepageInvest", {
+    eyebrow: investSectionContent.eyebrow,
+    title: investSectionContent.title,
+    description: investSectionContent.description,
+    buttons: withKeys(investSectionContent.buttons),
+  });
+
   await set("homepageCta", "homepageCta", {
     eyebrow: ctaContent.eyebrow,
     title: ctaContent.title,
@@ -198,6 +215,8 @@ async function seed() {
 
   await set("aboutPage", "aboutPage", {
     hero: { ...aboutContent.hero, image: await imageWithMeta(aboutContent.hero.image) },
+    question: aboutContent.question,
+    story: aboutContent.story,
     mission: { ...aboutContent.mission, image: await imageWithMeta(aboutContent.mission.image) },
     vision: aboutContent.vision,
     philosophy: aboutContent.philosophy,
@@ -209,7 +228,10 @@ async function seed() {
     hero: { ...founderPageContent.hero, image: await imageWithMeta(founderPageContent.hero.image) },
     name: founderPageContent.name,
     role: founderPageContent.role,
-    body: founderPageContent.body,
+    story: founderPageContent.story,
+    educationBackground: founderPageContent.educationBackground,
+    passion: founderPageContent.passion,
+    vision: founderPageContent.vision,
     pullQuote: founderPageContent.pullQuote,
     cta: founderPageContent.cta,
   });
@@ -248,6 +270,11 @@ async function seed() {
         .map((slide) => ({ ...slide, _key: randomUUID() })),
     },
     stages: withKeys(journeyPageContent.stages),
+    experienceHighlights: {
+      eyebrow: journeyPageContent.experienceHighlights.eyebrow,
+      title: journeyPageContent.experienceHighlights.title,
+      items: withKeys(journeyPageContent.experienceHighlights.items),
+    },
     futureJourneys: journeyPageContent.futureJourneys,
     closing: journeyPageContent.closing,
   });
@@ -262,7 +289,8 @@ async function seed() {
     },
     newsletter: communityPageContent.newsletter,
     events: communityPageContent.events,
-    connections: communityPageContent.connections,
+    culturalConversations: communityPageContent.culturalConversations,
+    globalConnections: communityPageContent.globalConnections,
   });
 
   await set("reservePage", "reservePage", {
@@ -273,7 +301,19 @@ async function seed() {
     form: connectContent.form,
   });
 
-  console.log("\nDone — the Studio at /studio should now show all 18 documents populated.");
+  await set("investPage", "investPage", {
+    hero: { ...investPageContent.hero, image: await imageWithMeta(investPageContent.hero.image) },
+    whyInvest: { ...investPageContent.whyInvest, points: withKeys(investPageContent.whyInvest.points) },
+    strategicPartnerships: {
+      ...investPageContent.strategicPartnerships,
+      items: withKeys(investPageContent.strategicPartnerships.items),
+    },
+    sponsors: { ...investPageContent.sponsors, items: withKeys(investPageContent.sponsors.items) },
+    investors: { ...investPageContent.investors, points: withKeys(investPageContent.investors.points) },
+    form: investPageContent.form,
+  });
+
+  console.log("\nDone — the Studio at /studio should now show all 21 documents populated.");
 }
 
 seed().catch((error) => {

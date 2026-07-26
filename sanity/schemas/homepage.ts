@@ -229,6 +229,30 @@ export const homepageAcademy = defineType({
   ],
 });
 
+export const homepageCommunityInvitation = defineType({
+  name: "homepageCommunityInvitation",
+  title: "Homepage — Community Invitation",
+  type: "document",
+  fields: [
+    defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+    defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "description", title: "Description", type: "text" }),
+    defineField({ name: "buttons", title: "Buttons", type: "array", of: [defineArrayMember({ type: "buttonObject" })] }),
+  ],
+});
+
+export const homepageInvest = defineType({
+  name: "homepageInvest",
+  title: "Homepage — Invest",
+  type: "document",
+  fields: [
+    defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+    defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "description", title: "Description", type: "text" }),
+    defineField({ name: "buttons", title: "Buttons", type: "array", of: [defineArrayMember({ type: "buttonObject" })] }),
+  ],
+});
+
 export const homepageCta = defineType({
   name: "homepageCta",
   title: "Homepage — Final CTA",
@@ -252,6 +276,8 @@ export const homepageSchemas = [
   homepageAcademy,
   homepageItinerary,
   homepageInvestment,
+  homepageCommunityInvitation,
+  homepageInvest,
   homepageCta,
 ];
 

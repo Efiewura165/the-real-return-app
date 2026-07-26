@@ -3,6 +3,7 @@ import type { ImageAsset } from "@/types/homepage";
 export interface ApproachPillar {
   key: "people" | "place" | "purpose";
   title: string;
+  tagline: string;
   description: string;
 }
 

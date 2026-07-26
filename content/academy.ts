@@ -19,11 +19,18 @@ export const academyPageContent: AcademyPageContent = {
   },
   programs: [
     {
+      name: "Journey Preparation Experience™",
+      tagline: "Prepare Your Mind. Open Your Heart. Begin Your Return.",
+      description: "The grounding phase every pilgrim moves through first — what to expect, how to hold the experience, and how to arrive ready to receive it, not just observe it.",
+    },
+    {
       name: "Africa Reimagined™",
+      tagline: "Discover Africa Beyond The Narrative.",
       description: "A rotating showcase of contemporary African innovation, art, and enterprise — built to sit alongside the historical curriculum so return feels forward-looking, not only backward-looking.",
     },
     {
       name: "The Future Africa Experience™",
+      tagline: "A Deeper Journey Of Understanding And Connection.",
       description: "The throughline that connects every module: Ghana and the wider continent are studied not just as heritage, but as where you might live, invest, and build next.",
     },
   ],

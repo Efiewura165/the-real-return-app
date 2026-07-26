@@ -8,10 +8,12 @@ import { GoldRule } from "@/components/heritage/GoldRule";
 import { ContactForm } from "@/components/connect/ContactForm";
 import { PricingCard } from "@/components/ui/pricing-card";
 import { EditorialHeading } from "@/components/editorial/EditorialHeading";
+import { DepositCheckout } from "@/components/reserve/DepositCheckout";
 import { buildMetadata } from "@/lib/seo";
 import { getContent } from "@/lib/sanity/fetch";
 import { connectContent } from "@/content/connect";
 import { investmentContent } from "@/content/shared/investment";
+import { depositContent } from "@/content/shared/deposit";
 import type { ConnectContent } from "@/types/connect";
 
 export const metadata: Metadata = buildMetadata("Reserve");
@@ -55,6 +57,25 @@ export default async function ReservePage() {
               ))}
             </ol>
           </Reveal>
+        </Container>
+      </Section>
+
+      <Section className="border-b border-border/70">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            <Reveal>
+              <EditorialHeading
+                eyebrow={depositContent.eyebrow}
+                title={depositContent.title}
+                description={`${depositContent.description} $${depositContent.amount} ${depositContent.currency}, applied toward your journey.`}
+              />
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="rounded-[0.2rem] border border-black/10 bg-[#f8f2e8]/50 p-6 sm:p-8">
+                <DepositCheckout content={depositContent} />
+              </div>
+            </Reveal>
+          </div>
         </Container>
       </Section>
 

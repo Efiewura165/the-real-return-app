@@ -10,11 +10,12 @@ import type { CtaContent } from "@/types/homepage";
 
 interface FinalCTAProps {
   content: CtaContent;
+  id?: string;
 }
 
-export function FinalCTA({ content }: FinalCTAProps) {
+export function FinalCTA({ content, id = "cta" }: FinalCTAProps) {
   return (
-    <Section id="cta">
+    <Section id={id}>
       <Container className="py-16 sm:py-24">
         <Reveal>
           <div className="rounded-[2.5rem] border border-border/70 bg-background/70 p-8 shadow-[0_20px_60px_rgba(8,15,12,0.12)] sm:p-10 lg:p-12">

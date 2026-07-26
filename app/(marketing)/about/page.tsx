@@ -19,11 +19,31 @@ import type { AboutContent } from "@/types/about";
 export const metadata: Metadata = buildMetadata("About");
 
 export default async function AboutPage() {
-  const { hero, mission, vision, philosophy, quote, stats } = await getContent<AboutContent>("aboutPage", aboutContent);
+  const { hero, question, story, mission, vision, philosophy, quote, stats } = await getContent<AboutContent>("aboutPage", aboutContent);
 
   return (
     <>
       <PageHero eyebrow={hero.eyebrow} title={hero.title} description={hero.description} image={hero.image} />
+
+      <Section className="border-b border-border/70">
+        <Container className="max-w-3xl">
+          <Reveal>
+            <EditorialSection eyebrow={question.eyebrow} title={question.title}>
+              <p className="text-base leading-8 text-foreground/70">{question.body}</p>
+            </EditorialSection>
+          </Reveal>
+        </Container>
+      </Section>
+
+      <Section className="border-b border-border/70">
+        <Container className="max-w-3xl">
+          <Reveal>
+            <EditorialSection eyebrow={story.eyebrow} title={story.title}>
+              <p className="text-base leading-8 text-foreground/70">{story.body}</p>
+            </EditorialSection>
+          </Reveal>
+        </Container>
+      </Section>
 
       <Section className="border-b border-border/70">
         <Container>

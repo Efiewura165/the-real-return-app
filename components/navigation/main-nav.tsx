@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 import { brandConfig } from "@/config/brand";
-import { navLinks } from "@/config/nav";
+import { navLinks, secondaryNavLinks } from "@/config/nav";
 import { SymbolMark } from "@/components/brand/Logo";
 import { cn } from "@/lib/utils";
 
@@ -113,11 +113,22 @@ export function MainNav() {
               })}
             </nav>
 
-            <div
-              className="mx-auto w-full max-w-7xl px-6 py-6 text-[0.68rem] uppercase tracking-[0.32em] sm:px-8 lg:px-10"
-              style={{ color: `${brandConfig.colors.ivory}80` }}
-            >
-              {brandConfig.tagline}™
+            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 sm:px-8 lg:px-10">
+              <p className="text-[0.68rem] uppercase tracking-[0.32em]" style={{ color: `${brandConfig.colors.ivory}80` }}>
+                {brandConfig.tagline}™
+              </p>
+              <nav aria-label="Secondary" className="flex gap-4">
+                {secondaryNavLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-[0.68rem] uppercase tracking-[0.32em] transition-colors hover:opacity-100"
+                    style={{ color: `${brandConfig.colors.ivory}80` }}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
             </div>
           </motion.div>
         ) : null}

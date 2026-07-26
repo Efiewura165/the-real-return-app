@@ -15,7 +15,12 @@ import type { FounderPageContent } from "@/types/founder";
 export const metadata: Metadata = buildMetadata("Founder");
 
 export default async function FounderPage() {
-  const { hero, name, role, body, pullQuote, cta } = await getContent<FounderPageContent>("founderPage", founderPageContent);
+  const { hero, name, role, story, educationBackground, passion, vision, pullQuote, cta } = await getContent<FounderPageContent>(
+    "founderPage",
+    founderPageContent,
+  );
+
+  const sections = [educationBackground, passion, vision];
 
   return (
     <>
@@ -24,14 +29,23 @@ export default async function FounderPage() {
       <Section>
         <Container className="max-w-3xl">
           <Reveal>
-            <div className="space-y-5">
-              {body.map((paragraph) => (
-                <p key={paragraph} className="text-base leading-8 text-foreground/70">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-            <div className="mt-8">
+            <p className="text-[0.8125rem] font-medium uppercase tracking-[0.22em] text-foreground/75">Founder Story</p>
+            <p className="mt-4 font-serif text-2xl leading-tight text-foreground sm:text-3xl">{story}</p>
+          </Reveal>
+
+          <div className="mt-12 space-y-10">
+            {sections.map((section) => (
+              <Reveal key={section.title}>
+                <div className="border-t border-black/10 pt-8">
+                  <h3 className="font-serif text-xl font-normal text-foreground">{section.title}</h3>
+                  <p className="mt-3 text-base leading-8 text-foreground/70">{section.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="mt-10">
               <PullQuote quote={pullQuote} attribution={`${name}, ${role}`} />
             </div>
             <div className="mt-8">
