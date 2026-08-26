@@ -5,6 +5,7 @@ export const navLinks = [
   { href: "/approach", label: "Approach" },
   { href: "/journey-academy", label: "Journey Academy" },
   { href: "/experiences", label: "Experiences" },
+  { href: "/packages", label: "Packages" },
   { href: "/community", label: "Community" },
   { href: "/reserve", label: "Reserve" },
 ] as const;
