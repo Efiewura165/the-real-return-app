@@ -10,6 +10,7 @@ import { PricingCard } from "@/components/ui/pricing-card";
 import { EditorialHeading } from "@/components/editorial/EditorialHeading";
 import { DepositCheckout } from "@/components/reserve/DepositCheckout";
 import { buildMetadata } from "@/lib/seo";
+import { isStripeCheckoutEnabled } from "@/lib/stripe";
 import { getContent } from "@/lib/sanity/fetch";
 import { connectContent } from "@/content/connect";
 import { investmentContent } from "@/content/shared/investment";
@@ -20,6 +21,7 @@ export const metadata: Metadata = buildMetadata("Reserve");
 
 export default async function ReservePage() {
   const { hero, journeyOptions, process, info, form } = await getContent<ConnectContent>("reservePage", connectContent);
+  const stripeEnabled = isStripeCheckoutEnabled();
 
   return (
     <>
@@ -60,7 +62,7 @@ export default async function ReservePage() {
         </Container>
       </Section>
 
-      <Section className="border-b border-border/70">
+      <Section id="deposit" className="scroll-mt-24 border-b border-border/70">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <Reveal>
@@ -72,7 +74,7 @@ export default async function ReservePage() {
             </Reveal>
             <Reveal delay={0.08}>
               <div className="rounded-[0.2rem] border border-black/10 bg-[#f8f2e8]/50 p-6 sm:p-8">
-                <DepositCheckout content={depositContent} />
+                <DepositCheckout content={depositContent} stripeEnabled={stripeEnabled} />
               </div>
             </Reveal>
           </div>

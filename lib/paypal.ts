@@ -1,12 +1,9 @@
 import { randomUUID } from "node:crypto";
 
-import { depositContent } from "@/content/shared/deposit";
+import { depositAmount, depositCurrency } from "@/lib/deposit-fulfillment";
 
 const PAYPAL_BASE_URL =
   process.env.PAYPAL_ENV === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
-
-export const depositAmount = Number(process.env.RESERVATION_DEPOSIT_AMOUNT) || depositContent.amount;
-export const depositCurrency = process.env.RESERVATION_DEPOSIT_CURRENCY || depositContent.currency;
 
 function hasPayPalCredentials() {
   return Boolean(process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET);
